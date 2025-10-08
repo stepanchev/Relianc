@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // === Код для каруселей (твой старый код) ===
+
     const carousels = document.querySelectorAll('.carousel');
 
     carousels.forEach(carousel => {
         const container = carousel.parentElement;
         const prevBtn = container.querySelector('.prev-btn');
         const nextBtn = container.querySelector('.next-btn');
-        const cardWidth = carousel.querySelector('.movie-card').offsetWidth + 220; // ширина карточки + gap
+        const cardWidth = carousel.querySelector('.movie-card').offsetWidth + 220; 
         
         nextBtn?.addEventListener('click', () => {
             carousel.scrollBy({
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // === Модальное окно входа ===
     const loginModal = document.getElementById('loginModal');
     const openLoginBtn = document.querySelector('.login-btn');
     const closeLoginBtn = loginModal?.querySelector('.close-btn');
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // === Модальное окно регистрации ===
     const registerModal = document.getElementById('registerModal');
     const openRegisterBtn = document.querySelector('.reg-btn');
     const closeRegisterBtn = registerModal?.querySelector('.close-btn');
@@ -74,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loginModal.classList.add('active');
     });
 
-    // === Общее для обоих модальных окон ===
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (loginModal?.classList.contains('active')) {
@@ -88,18 +85,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // === Логика логина/регистрации ===
+ 
     const loginBtn = document.querySelector('.login-btn');
     const registerBtn = document.querySelector('.reg-btn');
     const userProfile = document.querySelector('.user-profile');
     const avatar = document.querySelector('.avatar');
     const usernameSpan = document.querySelector('.username');
 
-    // Проверяем, есть ли пользователь в localStorage при загрузке
+
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
-        // Показываем профиль
+  
         if (loginBtn) loginBtn.style.display = 'none';
         if (registerBtn) registerBtn.style.display = 'none';
         if (userProfile) userProfile.style.display = 'flex';
@@ -107,9 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (avatar && user.avatar) avatar.src = user.avatar;
     }
 
-    // Функция при успешном входе/регистрации
+  
     window.onLoginSuccess = function(userData) {
-        // Сохраняем данные пользователя в localStorage
+      
         localStorage.setItem('user', JSON.stringify(userData));
 
         if (loginBtn) loginBtn.style.display = 'none';
@@ -171,4 +168,25 @@ document.addEventListener('click', (e) => {
 });
 
 
+  const subscribeBtn = document.querySelector('.subscribe-btn');
+  const circles = document.querySelectorAll('.floating-circle');
+
+  if (subscribeBtn && circles.length > 0) {
+    const handleMouseEnter = () => {
+      circles.forEach((circle) => circle.classList.add('enhanced'));
+    };
+
+    const handleMouseLeave = () => {
+      circles.forEach((circle) => circle.classList.remove('enhanced'));
+    };
+
+    subscribeBtn.addEventListener('mouseenter', handleMouseEnter);
+    subscribeBtn.addEventListener('mouseleave', handleMouseLeave);
+
+    const subscribeLink = subscribeBtn.closest('a');
+    if (subscribeLink) {
+      subscribeLink.addEventListener('mouseenter', handleMouseEnter);
+      subscribeLink.addEventListener('mouseleave', handleMouseLeave);
+    }
+  }
 });
