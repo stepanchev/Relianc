@@ -1,5 +1,3 @@
-
-
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +15,6 @@ a {
   color: white;
   text-decoration: none;
 }
-
 
 .header {
   display: flex;
@@ -392,7 +389,6 @@ a {
   opacity: 1;
   filter: blur(50px) brightness(1.5);
 }
-
 .circle-1 {
   width: 200px;
   height: 200px;
@@ -538,7 +534,7 @@ a {
 
 .carousel-btn.prev-btn {
   left: 10px;
-  z-index: 999;
+  z-index: 30;
 }
 
 .carousel-btn.next-btn {
@@ -776,7 +772,145 @@ a {
   font-size: 12px;
 }
 
-/* === Мобильные брейкпоинты === */
+/* === Movie Modal === */
+.movie-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.movie-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.movie-modal-content {
+  position: relative;
+  background: #121212;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 95vw;
+  max-height: 95vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.movie-modal.active .movie-modal-content {
+  transform: scale(1);
+}
+
+.movie-modal-header {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.movie-modal-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.movie-modal-close:hover {
+  background: rgba(255, 0, 0, 0.6);
+}
+
+.movie-modal-body {
+  padding: 25px;
+  overflow-y: auto;
+  max-height: calc(95vh - 200px);
+}
+
+.movie-modal-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.movie-modal-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  color: #aaa;
+}
+
+.movie-modal-description {
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.movie-modal-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.movie-modal-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-modal-watch {
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+}
+
+.movie-modal-watch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+}
+
+.movie-modal-favorite {
+  background: #333;
+  color: white;
+}
+
+.movie-modal-favorite:hover {
+  background: #444;
+}
+
 @media (max-width: 1200px) {
   .header {
     padding: 15px 20px;
@@ -1034,7 +1168,17 @@ a {
     padding: 6px 10px;
     font-size: 10px;
   }
-
+  .subscription_section {
+    width: 100%;
+  }
+  .subscription-images img {
+    width: 25%;
+    height: 80%;
+  }
+  .subscription-images {
+    margin-right: 30%;
+    margin-top: 0%;
+  }
   .section {
     padding: 15px 5px;
   }
@@ -1061,6 +1205,13 @@ a {
   .subscription-title {
     font-size: 14px;
   }
+  .subscription-banner h3 {
+    margin-top: 10%;
+    font-size: 4.6vw;
+  }
+  .subscription-banner p {
+    font-size: 4vw;
+  }
 
   .subscription-desc {
     font-size: 10px;
@@ -1068,7 +1219,9 @@ a {
 
   .subscription-btn {
     padding: 4px 8px;
-    font-size: 8px;
+    font-size: 12px;
+    width: 100%;
+    height: 20%;
   }
 
   .movie-info h2 {
@@ -1100,6 +1253,203 @@ a {
     width: 80px;
     height: 30px;
     font-size: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    padding: 8px 5px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .auth-section {
+    margin-left: auto;
+  }
+
+  .login-btn {
+    max-width: 55px;
+    height: 25px;
+    font-size: 10px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .nav-menu {
+    gap: 5px;
+  }
+
+  .nav-item {
+    font-size: 9px;
+    padding: 1px 2px;
+  }
+
+  .hero {
+    height: 20vh;
+  }
+
+  .hero-title {
+    font-size: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 10px;
+  }
+
+  .subscribe-btn {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+
+  .section {
+    padding: 10px 2px;
+  }
+
+  .section-title {
+    font-size: 12px;
+  }
+
+  .movie-card {
+    width: 100px;
+    height: 150px;
+  }
+
+  .carousel-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .subscription-banner {
+    padding: 5px;
+    margin: 15px 5%;
+    max-width: 90%;
+    height: auto;
+  }
+
+  .subscription-text {
+    max-width: 100%;
+  }
+
+  .subscription-title {
+    font-size: 12px;
+  }
+
+  .subscription-desc {
+    font-size: 8px;
+  }
+
+  .subscription-btn {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+
+  .subscription-images {
+    width: 100px;
+    height: 120px;
+    margin-right: 0;
+  }
+
+  .subscription-images img {
+    width: 60px;
+    height: 80px;
+  }
+
+  .subscription-images img:nth-child(1) {
+    left: 0;
+    top: 20px;
+  }
+
+  .subscription-images img:nth-child(2) {
+    left: 20px;
+    top: 10px;
+  }
+
+  .subscription-images img:nth-child(3) {
+    left: 40px;
+    top: 0;
+  }
+
+  .movie-detail {
+    margin-left: 5%;
+    width: 90%;
+    padding: 10px;
+  }
+
+  .movie-poster img {
+    height: 150px;
+  }
+
+  .movie-info {
+    margin-top: 10px;
+  }
+
+  .movie-info h2 {
+    font-size: 12px;
+  }
+
+  .movie-meta {
+    font-size: 7px;
+    gap: 5px;
+  }
+
+  .movie-description {
+    font-size: 7px;
+  }
+
+  .footer {
+    padding: 10px 2px 2px;
+  }
+
+  .footer-content {
+    gap: 10px;
+  }
+
+  .footer-column h3 {
+    font-size: 12px;
+  }
+
+  .footer-links a {
+    font-size: 10px;
+  }
+
+  .social-link {
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+  }
+
+  .footer-bottom {
+    font-size: 8px;
+  }
+
+  .movie-modal-header {
+    height: 120px;
+  }
+
+  .movie-modal-body {
+    padding: 15px;
+    max-height: calc(95vh - 120px);
+  }
+
+  .movie-modal-title {
+    font-size: 18px;
+  }
+
+  .movie-modal-meta {
+    font-size: 10px;
+    gap: 8px;
+  }
+
+  .movie-modal-description {
+    font-size: 12px;
+  }
+
+  .movie-modal-btn {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
 
