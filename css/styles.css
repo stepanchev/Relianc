@@ -22,7 +22,6 @@ a:hover {
   color: #ff4081;
 }
 
-/* === Header === */
 .header {
   display: flex;
   justify-content: space-between;
@@ -47,11 +46,6 @@ a:hover {
   color: white;
   letter-spacing: -0.5px;
   transition: transform 0.2s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-  color: #ff4081;
 }
 
 .nav-menu {
@@ -89,8 +83,7 @@ a:hover {
   width: 100%;
 }
 
-.login-btn,
-.reg-btn {
+.login-btn {
   background-color: #444;
   color: white;
   border: none;
@@ -99,14 +92,15 @@ a:hover {
   cursor: pointer;
   font-size: clamp(12px, 3vw, 14px);
   transition: all 0.3s ease;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
 }
 
-.reg-btn {
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-}
-
-.login-btn:hover,
-.reg-btn:hover {
+.login-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(255, 64, 129, 0.2);
 }
@@ -122,7 +116,12 @@ a:hover {
   align-items: center;
   gap: 10px;
 }
-
+.user-trigger i {
+  font-size: 20px;
+  position: absolute;
+  margin-top: 10px;
+  cursor: pointer;
+}
 .avatar {
   width: clamp(30px, 5vw, 40px);
   height: clamp(30px, 5vw, 40px);
@@ -178,7 +177,6 @@ a:hover {
   background: #666;
 }
 
-/* === Modal === */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -211,10 +209,12 @@ a:hover {
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1001;
   overflow-y: auto;
 }
-
 .modal-overlay.active .modal-panel {
   transform: translateX(0);
 }
@@ -357,6 +357,9 @@ a:hover {
   font-size: clamp(14px, 4vw, 18px);
   cursor: pointer;
   transition: transform 0.8s ease;
+  background-size: 100% 200%;
+  position: relative; /* Для корректной работы анимации */
+  overflow: hidden;
 }
 
 .subscribe-btn:hover {
@@ -540,6 +543,7 @@ a:hover {
   padding: clamp(20px, 5vw, 30px);
   margin: clamp(20px, 5vw, 30px) clamp(5%, 10vw, 20%);
   max-width: 90%;
+  right: 5%;
   width: 100%;
   height: auto;
   display: flex;
@@ -675,17 +679,46 @@ a:hover {
   transform: translateX(-5px);
 }
 
-/* === Movie Detail === */
+/* ... (все предыдущие стили остаются без изменений) ... */
+
+/* === Movie Detail (Фильм недели) === */
+.movie-of-the-week-section {
+  position: relative;
+  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
+  margin: 0 clamp(5%, 3vw, 10%);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-of-the-week-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Эффект градиентной линии сверху */
+.movie-of-the-week-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4081, #7c4dff);
+  border-radius: 20px 20px 0 0;
+}
+
 .movie-detail {
   display: flex;
   gap: clamp(10px, 3vw, 20px);
-  margin-top: clamp(20px, 5vw, 30px);
-  margin-left: clamp(5%, 10vw, 20%);
-  background: #111;
-  width: clamp(80%, 60%, 90%);
+  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
+  margin-left: 0;
+  background: transparent; /* Убираем фон */
+  width: 100%;
   border-radius: 10px;
   align-items: flex-start;
-  padding: clamp(10px, 3vw, 20px);
+  padding: 0; /* Убираем паддинги */
   flex-wrap: wrap;
 }
 
@@ -693,6 +726,14 @@ a:hover {
   width: clamp(25%, 30%, 40%);
   border-radius: 8px;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
 }
 
 .movie-poster img {
@@ -700,28 +741,44 @@ a:hover {
   height: auto;
   max-height: 300px;
   object-fit: cover;
+  display: block; /* Убирает лишнее пространство под изображением */
+  transition: transform 0.3s ease;
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
 }
 
 .rating-badge {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: #0f0;
-  color: black;
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
   padding: 3px 8px;
   border-radius: 4px;
   font-weight: bold;
   font-size: 12px;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .movie-info {
   flex: 1;
   margin-top: clamp(10px, 3vw, 20px);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: clamp(250px, 50%, 1fr); /* Гибкая ширина для адаптивности */
 }
 
 .movie-info h2 {
   font-size: clamp(20px, 5vw, 24px);
   margin-bottom: 8px;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .movie-meta {
@@ -730,15 +787,782 @@ a:hover {
   margin-bottom: clamp(10px, 3vw, 15px);
   font-size: clamp(10px, 3vw, 14px);
   flex-wrap: wrap;
+  color: #ccc;
+}
+
+.movie-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .movie-description {
   line-height: 1.6;
   font-size: clamp(10px, 3vw, 14px);
   padding-right: 10px;
+  margin-bottom: clamp(15px, 4vw, 20px);
+  color: #bbb;
+  flex-grow: 1; /* Занимает оставшееся пространство */
 }
 
-/* === Footer === */
+.movie-actions {
+  display: flex;
+  gap: clamp(10px, 2vw, 15px);
+  align-self: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.watch-btn,
+.add-to-list-btn {
+  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
+  border-radius: 30px;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.watch-btn {
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
+}
+
+.add-to-list-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: clamp(35px, 6vw, 45px);
+  height: clamp(35px, 6vw, 45px);
+  border-radius: 50%;
+  font-size: clamp(16px, 4vw, 20px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.add-to-list-btn:hover {
+  background: rgba(255, 64, 129, 0.2);
+  transform: scale(1.1);
+}
+/* ... (все предыдущие стили остаются без изменений) ... */
+
+/* === Movie Detail (Фильм недели) === */
+.movie-of-the-week-section {
+  position: relative;
+  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
+  margin: 0 clamp(5%, 3vw, 10%);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-of-the-week-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Эффект градиентной линии сверху */
+.movie-of-the-week-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4081, #7c4dff);
+  border-radius: 20px 20px 0 0;
+}
+
+.movie-detail {
+  display: flex;
+  gap: clamp(10px, 3vw, 20px);
+  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
+  margin-left: 0;
+  background: transparent; /* Убираем фон */
+  width: 100%;
+  border-radius: 10px;
+  align-items: flex-start;
+  padding: 0; /* Убираем паддинги */
+  flex-wrap: wrap;
+}
+
+.movie-poster {
+  width: clamp(25%, 30%, 40%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  display: block; /* Убирает лишнее пространство под изображением */
+  transition: transform 0.3s ease;
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
+}
+
+.rating-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.movie-info {
+  flex: 1;
+  margin-top: clamp(10px, 3vw, 20px);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: clamp(250px, 50%, 1fr); /* Гибкая ширина для адаптивности */
+}
+
+.movie-info h2 {
+  font-size: clamp(20px, 5vw, 24px);
+  margin-bottom: 8px;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.movie-meta {
+  display: flex;
+  gap: clamp(8px, 2vw, 15px);
+  margin-bottom: clamp(10px, 3vw, 15px);
+  font-size: clamp(10px, 3vw, 14px);
+  flex-wrap: wrap;
+  color: #ccc;
+}
+
+.movie-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.movie-description {
+  line-height: 1.6;
+  font-size: clamp(10px, 3vw, 14px);
+  padding-right: 10px;
+  margin-bottom: clamp(15px, 4vw, 20px);
+  color: #bbb;
+  flex-grow: 1; /* Занимает оставшееся пространство */
+}
+
+.movie-actions {
+  display: flex;
+  gap: clamp(10px, 2vw, 15px);
+  align-self: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.watch-btn,
+.add-to-list-btn {
+  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
+  border-radius: 30px;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.watch-btn {
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
+}
+
+.add-to-list-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: clamp(35px, 6vw, 45px);
+  height: clamp(35px, 6vw, 45px);
+  border-radius: 50%;
+  font-size: clamp(16px, 4vw, 20px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.add-to-list-btn:hover {
+  background: rgba(255, 64, 129, 0.2);
+  transform: scale(1.1);
+}
+
+/* ... (все остальные стили остаются без изменений) ... */ /* ... (все предыдущие стили остаются без изменений) ... */
+
+/* === Movie Detail (Фильм недели) === */
+.movie-of-the-week-section {
+  position: relative;
+  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
+  margin: 0 clamp(5%, 3vw, 10%);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-of-the-week-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Эффект градиентной линии сверху */
+.movie-of-the-week-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4081, #7c4dff);
+  border-radius: 20px 20px 0 0;
+}
+
+.movie-detail {
+  display: flex;
+  gap: clamp(10px, 3vw, 20px);
+  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
+  margin-left: 0;
+  background: transparent; /* Убираем фон */
+  width: 100%;
+  border-radius: 10px;
+  align-items: flex-start;
+  padding: 0; /* Убираем паддинги */
+  flex-wrap: wrap;
+}
+
+.movie-poster {
+  width: clamp(25%, 30%, 40%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  display: block; /* Убирает лишнее пространство под изображением */
+  transition: transform 0.3s ease;
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
+}
+
+.rating-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.movie-info {
+  flex: 1;
+  margin-top: clamp(10px, 3vw, 20px);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: clamp(250px, 50%, 1fr); /* Гибкая ширина для адаптивности */
+}
+
+.movie-info h2 {
+  font-size: clamp(20px, 5vw, 24px);
+  margin-bottom: 8px;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.movie-meta {
+  display: flex;
+  gap: clamp(8px, 2vw, 15px);
+  margin-bottom: clamp(10px, 3vw, 15px);
+  font-size: clamp(10px, 3vw, 14px);
+  flex-wrap: wrap;
+  color: #ccc;
+}
+
+.movie-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.movie-description {
+  line-height: 1.6;
+  font-size: clamp(10px, 3vw, 14px);
+  padding-right: 10px;
+  margin-bottom: clamp(15px, 4vw, 20px);
+  color: #bbb;
+  flex-grow: 1; /* Занимает оставшееся пространство */
+}
+
+.movie-actions {
+  display: flex;
+  gap: clamp(10px, 2vw, 15px);
+  align-self: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.watch-btn,
+.add-to-list-btn {
+  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
+  border-radius: 30px;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.watch-btn {
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
+}
+
+.add-to-list-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: clamp(35px, 6vw, 45px);
+  height: clamp(35px, 6vw, 45px);
+  border-radius: 50%;
+  font-size: clamp(16px, 4vw, 20px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.add-to-list-btn:hover {
+  background: rgba(255, 64, 129, 0.2);
+  transform: scale(1.1);
+}
+
+/* ... (все остальные стили остаются без изменений) ... */ /* ... (все предыдущие стили остаются без изменений) ... */
+
+/* === Movie Detail (Фильм недели) === */
+.movie-of-the-week-section {
+  position: relative;
+  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
+  margin: 0 clamp(5%, 3vw, 10%);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-of-the-week-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Эффект градиентной линии сверху */
+.movie-of-the-week-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4081, #7c4dff);
+  border-radius: 20px 20px 0 0;
+}
+
+.movie-detail {
+  display: flex;
+  gap: clamp(10px, 3vw, 20px);
+  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
+  margin-left: 0;
+  background: transparent; /* Убираем фон */
+  width: 100%;
+  border-radius: 10px;
+  align-items: flex-start;
+  padding: 0; /* Убираем паддинги */
+  flex-wrap: wrap;
+}
+
+.movie-poster {
+  width: clamp(25%, 30%, 40%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  display: block; /* Убирает лишнее пространство под изображением */
+  transition: transform 0.3s ease;
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
+}
+
+.rating-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.movie-info {
+  flex: 1;
+  margin-top: clamp(10px, 3vw, 20px);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: clamp(250px, 50%, 1fr); /* Гибкая ширина для адаптивности */
+}
+
+.movie-info h2 {
+  font-size: clamp(20px, 5vw, 24px);
+  margin-bottom: 8px;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.movie-meta {
+  display: flex;
+  gap: clamp(8px, 2vw, 15px);
+  margin-bottom: clamp(10px, 3vw, 15px);
+  font-size: clamp(10px, 3vw, 14px);
+  flex-wrap: wrap;
+  color: #ccc;
+}
+
+.movie-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.movie-description {
+  line-height: 1.6;
+  font-size: clamp(10px, 3vw, 14px);
+  padding-right: 10px;
+  margin-bottom: clamp(15px, 4vw, 20px);
+  color: #bbb;
+  flex-grow: 1; /* Занимает оставшееся пространство */
+}
+
+.movie-actions {
+  display: flex;
+  gap: clamp(10px, 2vw, 15px);
+  align-self: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.watch-btn,
+.add-to-list-btn {
+  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
+  border-radius: 30px;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.watch-btn {
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
+}
+
+.add-to-list-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: clamp(35px, 6vw, 45px);
+  height: clamp(35px, 6vw, 45px);
+  border-radius: 50%;
+  font-size: clamp(16px, 4vw, 20px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.add-to-list-btn:hover {
+  background: rgba(255, 64, 129, 0.2);
+  transform: scale(1.1);
+}
+
+.movie-of-the-week-section {
+  position: relative;
+  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
+  margin: 0 clamp(5%, 3vw, 10%);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.movie-of-the-week-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Эффект градиентной линии сверху */
+.movie-of-the-week-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4081, #7c4dff);
+  border-radius: 20px 20px 0 0;
+}
+
+.movie-detail {
+  display: flex;
+  gap: clamp(10px, 3vw, 20px);
+  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
+  margin-left: 0;
+  background: transparent; /* Убираем фон */
+  width: 100%;
+  border-radius: 10px;
+  align-items: flex-start;
+  padding: 0; /* Убираем паддинги */
+  flex-wrap: wrap;
+}
+
+.movie-poster {
+  width: clamp(25%, 30%, 40%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  display: block; /* Убирает лишнее пространство под изображением */
+  transition: transform 0.3s ease;
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
+}
+
+.rating-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.movie-info {
+  flex: 1;
+  margin-top: clamp(10px, 3vw, 20px);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: clamp(250px, 50%, 1fr);
+}
+
+.movie-info h2 {
+  font-size: clamp(20px, 5vw, 24px);
+  margin-bottom: 8px;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.movie-meta {
+  display: flex;
+  gap: clamp(8px, 2vw, 15px);
+  margin-bottom: clamp(10px, 3vw, 15px);
+  font-size: clamp(10px, 3vw, 14px);
+  flex-wrap: wrap;
+  color: #ccc;
+}
+
+.movie-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.movie-description {
+  line-height: 1.6;
+  font-size: clamp(10px, 3vw, 14px);
+  padding-right: 10px;
+  margin-bottom: clamp(15px, 4vw, 20px);
+  color: #bbb;
+  flex-grow: 1;
+}
+
+.movie-actions {
+  display: flex;
+  gap: clamp(10px, 2vw, 15px);
+  align-self: flex-start;
+}
+
+.watch-btn,
+.add-to-list-btn {
+  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
+  border-radius: 30px;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.watch-btn {
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
+}
+
+.add-to-list-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: clamp(35px, 6vw, 45px);
+  height: clamp(35px, 6vw, 45px);
+  border-radius: 50%;
+  font-size: clamp(16px, 4vw, 20px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.add-to-list-btn:hover {
+  background: rgba(255, 64, 129, 0.2);
+  transform: scale(1.1);
+}
+
+/* ... (все остальные стили остаются без изменений) ... */
 .footer {
   background: linear-gradient(135deg, #111111, #0a0a0a);
   padding: clamp(30px, 5vw, 60px) clamp(15px, 5vw, 40px) clamp(15px, 3vw, 30px);
@@ -824,7 +1648,6 @@ a:hover {
   font-size: clamp(8px, 2vw, 12px);
 }
 
-/* === Movie Modal === */
 .movie-modal {
   position: fixed;
   top: 0;
