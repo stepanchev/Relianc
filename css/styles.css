@@ -22,6 +22,7 @@ a:hover {
   color: #ff4081;
 }
 
+/* === Шапка (Header) === */
 .header {
   display: flex;
   justify-content: space-between;
@@ -116,17 +117,20 @@ a:hover {
   align-items: center;
   gap: 10px;
 }
+
 .user-trigger i {
   font-size: 20px;
   position: absolute;
   margin-top: 10px;
   cursor: pointer;
 }
+
 .avatar {
   width: clamp(30px, 5vw, 40px);
   height: clamp(30px, 5vw, 40px);
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .dropdown-menu {
@@ -177,6 +181,7 @@ a:hover {
   background: #666;
 }
 
+/* === Модальные окна === */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -215,6 +220,7 @@ a:hover {
   z-index: 1001;
   overflow-y: auto;
 }
+
 .modal-overlay.active .modal-panel {
   transform: translateX(0);
 }
@@ -317,7 +323,7 @@ a:hover {
   border-top: 1px solid #eee;
 }
 
-/* === Hero === */
+/* === Герой (Hero) === */
 .hero {
   height: clamp(40vh, 60vh, 70vh);
   display: flex;
@@ -377,11 +383,13 @@ a:hover {
     opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .floating-circle.enhanced {
   transform: scale(1.8);
   opacity: 1;
   filter: blur(50px) brightness(1.5);
 }
+
 .circle-1 {
   width: clamp(150px, 20vw, 200px);
   height: clamp(150px, 20vw, 200px);
@@ -430,7 +438,7 @@ a:hover {
   }
 }
 
-/* === Section === */
+/* === Секции (Sections) === */
 .section {
   padding: clamp(20px, 5vw, 40px) clamp(15px, 5vw, 40px);
   min-height: 300px;
@@ -453,7 +461,7 @@ a:hover {
   background: linear-gradient(90deg, #ff4081, #7c4dff);
 }
 
-/* === Carousel === */
+/* === Карусель === */
 .carousel-container {
   position: relative;
   width: 100%;
@@ -536,14 +544,14 @@ a:hover {
   right: clamp(5px, 3vw, 10px);
 }
 
-/* === Subscription Banner === */
+/*  Баннер подписки === */
 .subscription-banner {
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   border-radius: 20px;
   padding: clamp(20px, 5vw, 30px);
   margin: clamp(20px, 5vw, 30px) clamp(5%, 10vw, 20%);
   max-width: 90%;
-  right: 5%;
+  right: 10%;
   width: 100%;
   height: auto;
   display: flex;
@@ -679,185 +687,7 @@ a:hover {
   transform: translateX(-5px);
 }
 
-/* ... (все предыдущие стили остаются без изменений) ... */
-
-/* === Movie Detail (Фильм недели) === */
-.movie-of-the-week-section {
-  position: relative;
-  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
-  margin: 0 clamp(5%, 3vw, 10%);
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-of-the-week-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Эффект градиентной линии сверху */
-.movie-of-the-week-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ff4081, #7c4dff);
-  border-radius: 20px 20px 0 0;
-}
-
-.movie-detail {
-  display: flex;
-  gap: clamp(10px, 3vw, 20px);
-  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
-  margin-left: 0;
-  background: transparent; /* Убираем фон */
-  width: 100%;
-  border-radius: 10px;
-  align-items: flex-start;
-  padding: 0; /* Убираем паддинги */
-  flex-wrap: wrap;
-}
-
-.movie-poster {
-  width: clamp(25%, 30%, 40%);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-poster:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-}
-
-.movie-poster img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  display: block; /* Убирает лишнее пространство под изображением */
-  transition: transform 0.3s ease;
-}
-
-.movie-poster img:hover {
-  transform: scale(1.05);
-}
-
-.rating-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 12px;
-  z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.movie-info {
-  flex: 1;
-  margin-top: clamp(10px, 3vw, 20px);
-  color: #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: clamp(250px, 50%, 1fr); /* Гибкая ширина для адаптивности */
-}
-
-.movie-info h2 {
-  font-size: clamp(20px, 5vw, 24px);
-  margin-bottom: 8px;
-  color: white;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.movie-meta {
-  display: flex;
-  gap: clamp(8px, 2vw, 15px);
-  margin-bottom: clamp(10px, 3vw, 15px);
-  font-size: clamp(10px, 3vw, 14px);
-  flex-wrap: wrap;
-  color: #ccc;
-}
-
-.movie-meta span {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2px 8px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.movie-description {
-  line-height: 1.6;
-  font-size: clamp(10px, 3vw, 14px);
-  padding-right: 10px;
-  margin-bottom: clamp(15px, 4vw, 20px);
-  color: #bbb;
-  flex-grow: 1; /* Занимает оставшееся пространство */
-}
-
-.movie-actions {
-  display: flex;
-  gap: clamp(10px, 2vw, 15px);
-  align-self: flex-start; /* Выравнивание по верхнему краю */
-}
-
-.watch-btn,
-.add-to-list-btn {
-  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
-  border-radius: 30px;
-  font-size: clamp(12px, 3vw, 14px);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.watch-btn {
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
-  flex-grow: 1;
-  min-width: 120px;
-}
-
-.watch-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
-}
-
-.add-to-list-btn {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  width: clamp(35px, 6vw, 45px);
-  height: clamp(35px, 6vw, 45px);
-  border-radius: 50%;
-  font-size: clamp(16px, 4vw, 20px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.add-to-list-btn:hover {
-  background: rgba(255, 64, 129, 0.2);
-  transform: scale(1.1);
-}
-/* ... (все предыдущие стили остаются без изменений) ... */
-
-/* === Movie Detail (Фильм недели) === */
+/* === Фильм недели === */
 .movie-of-the-week-section {
   position: relative;
   padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
@@ -1032,537 +862,7 @@ a:hover {
   transform: scale(1.1);
 }
 
-/* ... (все остальные стили остаются без изменений) ... */ /* ... (все предыдущие стили остаются без изменений) ... */
-
-/* === Movie Detail (Фильм недели) === */
-.movie-of-the-week-section {
-  position: relative;
-  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
-  margin: 0 clamp(5%, 3vw, 10%);
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-of-the-week-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Эффект градиентной линии сверху */
-.movie-of-the-week-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ff4081, #7c4dff);
-  border-radius: 20px 20px 0 0;
-}
-
-.movie-detail {
-  display: flex;
-  gap: clamp(10px, 3vw, 20px);
-  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
-  margin-left: 0;
-  background: transparent; /* Убираем фон */
-  width: 100%;
-  border-radius: 10px;
-  align-items: flex-start;
-  padding: 0; /* Убираем паддинги */
-  flex-wrap: wrap;
-}
-
-.movie-poster {
-  width: clamp(25%, 30%, 40%);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-poster:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-}
-
-.movie-poster img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  display: block; /* Убирает лишнее пространство под изображением */
-  transition: transform 0.3s ease;
-}
-
-.movie-poster img:hover {
-  transform: scale(1.05);
-}
-
-.rating-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 12px;
-  z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.movie-info {
-  flex: 1;
-  margin-top: clamp(10px, 3vw, 20px);
-  color: #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: clamp(250px, 50%, 1fr); /* Гибкая ширина для адаптивности */
-}
-
-.movie-info h2 {
-  font-size: clamp(20px, 5vw, 24px);
-  margin-bottom: 8px;
-  color: white;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.movie-meta {
-  display: flex;
-  gap: clamp(8px, 2vw, 15px);
-  margin-bottom: clamp(10px, 3vw, 15px);
-  font-size: clamp(10px, 3vw, 14px);
-  flex-wrap: wrap;
-  color: #ccc;
-}
-
-.movie-meta span {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2px 8px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.movie-description {
-  line-height: 1.6;
-  font-size: clamp(10px, 3vw, 14px);
-  padding-right: 10px;
-  margin-bottom: clamp(15px, 4vw, 20px);
-  color: #bbb;
-  flex-grow: 1; /* Занимает оставшееся пространство */
-}
-
-.movie-actions {
-  display: flex;
-  gap: clamp(10px, 2vw, 15px);
-  align-self: flex-start; /* Выравнивание по верхнему краю */
-}
-
-.watch-btn,
-.add-to-list-btn {
-  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
-  border-radius: 30px;
-  font-size: clamp(12px, 3vw, 14px);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.watch-btn {
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
-  flex-grow: 1;
-  min-width: 120px;
-}
-
-.watch-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
-}
-
-.add-to-list-btn {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  width: clamp(35px, 6vw, 45px);
-  height: clamp(35px, 6vw, 45px);
-  border-radius: 50%;
-  font-size: clamp(16px, 4vw, 20px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.add-to-list-btn:hover {
-  background: rgba(255, 64, 129, 0.2);
-  transform: scale(1.1);
-}
-
-/* ... (все остальные стили остаются без изменений) ... */ /* ... (все предыдущие стили остаются без изменений) ... */
-
-/* === Movie Detail (Фильм недели) === */
-.movie-of-the-week-section {
-  position: relative;
-  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
-  margin: 0 clamp(5%, 3vw, 10%);
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-of-the-week-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Эффект градиентной линии сверху */
-.movie-of-the-week-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ff4081, #7c4dff);
-  border-radius: 20px 20px 0 0;
-}
-
-.movie-detail {
-  display: flex;
-  gap: clamp(10px, 3vw, 20px);
-  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
-  margin-left: 0;
-  background: transparent; /* Убираем фон */
-  width: 100%;
-  border-radius: 10px;
-  align-items: flex-start;
-  padding: 0; /* Убираем паддинги */
-  flex-wrap: wrap;
-}
-
-.movie-poster {
-  width: clamp(25%, 30%, 40%);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-poster:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-}
-
-.movie-poster img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  display: block; /* Убирает лишнее пространство под изображением */
-  transition: transform 0.3s ease;
-}
-
-.movie-poster img:hover {
-  transform: scale(1.05);
-}
-
-.rating-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 12px;
-  z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.movie-info {
-  flex: 1;
-  margin-top: clamp(10px, 3vw, 20px);
-  color: #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: clamp(250px, 50%, 1fr); /* Гибкая ширина для адаптивности */
-}
-
-.movie-info h2 {
-  font-size: clamp(20px, 5vw, 24px);
-  margin-bottom: 8px;
-  color: white;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.movie-meta {
-  display: flex;
-  gap: clamp(8px, 2vw, 15px);
-  margin-bottom: clamp(10px, 3vw, 15px);
-  font-size: clamp(10px, 3vw, 14px);
-  flex-wrap: wrap;
-  color: #ccc;
-}
-
-.movie-meta span {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2px 8px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.movie-description {
-  line-height: 1.6;
-  font-size: clamp(10px, 3vw, 14px);
-  padding-right: 10px;
-  margin-bottom: clamp(15px, 4vw, 20px);
-  color: #bbb;
-  flex-grow: 1; /* Занимает оставшееся пространство */
-}
-
-.movie-actions {
-  display: flex;
-  gap: clamp(10px, 2vw, 15px);
-  align-self: flex-start; /* Выравнивание по верхнему краю */
-}
-
-.watch-btn,
-.add-to-list-btn {
-  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
-  border-radius: 30px;
-  font-size: clamp(12px, 3vw, 14px);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.watch-btn {
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
-  flex-grow: 1;
-  min-width: 120px;
-}
-
-.watch-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
-}
-
-.add-to-list-btn {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  width: clamp(35px, 6vw, 45px);
-  height: clamp(35px, 6vw, 45px);
-  border-radius: 50%;
-  font-size: clamp(16px, 4vw, 20px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.add-to-list-btn:hover {
-  background: rgba(255, 64, 129, 0.2);
-  transform: scale(1.1);
-}
-
-.movie-of-the-week-section {
-  position: relative;
-  padding: clamp(30px, 5vw, 50px) clamp(15px, 5vw, 40px);
-  margin: 0 clamp(5%, 3vw, 10%);
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 5%;
-  margin-top: 5%;
-}
-
-.movie-of-the-week-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Эффект градиентной линии сверху */
-.movie-of-the-week-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ff4081, #7c4dff);
-  border-radius: 20px 20px 0 0;
-}
-
-.movie-detail {
-  display: flex;
-  gap: clamp(10px, 3vw, 20px);
-  margin-top: 0; /* Убираем верхний отступ, так как он теперь у секции */
-  margin-left: 0;
-  background: transparent; /* Убираем фон */
-  width: 100%;
-  border-radius: 10px;
-  align-items: flex-start;
-  padding: 0; /* Убираем паддинги */
-  flex-wrap: wrap;
-}
-
-.movie-poster {
-  width: clamp(25%, 30%, 40%);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-poster:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-}
-
-.movie-poster img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
-  display: block; /* Убирает лишнее пространство под изображением */
-  transition: transform 0.3s ease;
-}
-
-.movie-poster img:hover {
-  transform: scale(1.05);
-}
-
-.rating-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 12px;
-  z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.movie-info {
-  flex: 1;
-  margin-top: clamp(10px, 3vw, 20px);
-  color: #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: clamp(250px, 50%, 1fr);
-}
-
-.movie-info h2 {
-  font-size: clamp(20px, 5vw, 24px);
-  margin-bottom: 8px;
-  color: white;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.movie-meta {
-  display: flex;
-  gap: clamp(8px, 2vw, 15px);
-  margin-bottom: clamp(10px, 3vw, 15px);
-  font-size: clamp(10px, 3vw, 14px);
-  flex-wrap: wrap;
-  color: #ccc;
-}
-
-.movie-meta span {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2px 8px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.movie-description {
-  line-height: 1.6;
-  font-size: clamp(10px, 3vw, 14px);
-  padding-right: 10px;
-  margin-bottom: clamp(15px, 4vw, 20px);
-  color: #bbb;
-  flex-grow: 1;
-}
-
-.movie-actions {
-  display: flex;
-  gap: clamp(10px, 2vw, 15px);
-  align-self: flex-start;
-}
-
-.watch-btn,
-.add-to-list-btn {
-  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
-  border-radius: 30px;
-  font-size: clamp(12px, 3vw, 14px);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.watch-btn {
-  background: linear-gradient(90deg, #ff4081, #6a37f5);
-  color: white;
-  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
-  flex-grow: 1;
-  min-width: 120px;
-}
-
-.watch-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
-}
-
-.add-to-list-btn {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  width: clamp(35px, 6vw, 45px);
-  height: clamp(35px, 6vw, 45px);
-  border-radius: 50%;
-  font-size: clamp(16px, 4vw, 20px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.add-to-list-btn:hover {
-  background: rgba(255, 64, 129, 0.2);
-  transform: scale(1.1);
-}
-
-/* ... (все остальные стили остаются без изменений) ... */
+/* === Подвал (Footer) === */
 .footer {
   background: linear-gradient(135deg, #111111, #0a0a0a);
   padding: clamp(30px, 5vw, 60px) clamp(15px, 5vw, 40px) clamp(15px, 3vw, 30px);
@@ -1648,6 +948,7 @@ a:hover {
   font-size: clamp(8px, 2vw, 12px);
 }
 
+/* === Модальное окно фильма === */
 .movie-modal {
   position: fixed;
   top: 0;
@@ -1658,7 +959,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -1671,102 +972,189 @@ a:hover {
 
 .movie-modal-content {
   position: relative;
-  background: #121212;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   border-radius: 16px;
   overflow: hidden;
   max-width: 95vw;
   max-height: 95vh;
-  width: 100%;
+  width: 90%;
+  height: 80vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
   transform: scale(0.9);
   transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 2px;
+  box-sizing: border-box;
 }
 
 .movie-modal.active .movie-modal-content {
   transform: scale(1);
 }
 
-.movie-modal-header {
-  position: relative;
-  height: clamp(100px, 30vh, 200px);
+.movie-modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #ff4081, #7c4dff);
+  z-index: -1;
+  border-radius: 14px;
+}
+
+.movie-modal-body {
+  display: flex;
+  flex: 1;
   overflow: hidden;
+  background: #121212;
+  border-radius: 14px;
+  flex-direction: column;
+}
+
+.movie-modal-poster-container {
+  position: relative;
+  width: 100%;
+  height: 40%;
+  min-height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0a0a0a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .movie-modal-poster {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.movie-modal-poster-container:hover .movie-modal-poster {
+  transform: scale(1.02);
+}
+
+.movie-modal-info {
+  width: 100%;
+  padding: 25px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #e0e0e0;
+  flex: 1;
 }
 
 .movie-modal-close {
   position: absolute;
-  top: clamp(10px, 3vw, 15px);
-  right: clamp(10px, 3vw, 15px);
+  top: 20px;
+  right: 20px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
-  width: clamp(30px, 6vw, 40px);
-  height: clamp(30px, 6vw, 40px);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  font-size: clamp(16px, 4vw, 20px);
+  font-size: 20px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .movie-modal-close:hover {
   background: rgba(255, 0, 0, 0.6);
-}
-
-.movie-modal-body {
-  padding: clamp(15px, 4vw, 25px);
-  overflow-y: auto;
-  max-height: calc(95vh - clamp(100px, 30vh, 200px));
+  transform: scale(1.1);
 }
 
 .movie-modal-title {
-  font-size: clamp(20px, 5vw, 24px);
-  margin-bottom: clamp(10px, 3vw, 15px);
+  font-size: 28px;
+  margin-bottom: 20px;
   color: white;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.movie-modal-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4081, #7c4dff);
+  border-radius: 2px;
 }
 
 .movie-modal-meta {
   display: flex;
-  gap: clamp(8px, 2vw, 15px);
-  margin-bottom: clamp(10px, 3vw, 15px);
+  gap: 15px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
   color: #aaa;
-  font-size: clamp(10px, 3vw, 14px);
+  font-size: 14px;
+}
+
+.movie-modal-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  font-size: 12px;
+}
+
+.movie-modal-meta span:hover {
+  background: rgba(255, 64, 129, 0.2);
+  border-color: rgba(255, 64, 129, 0.3);
 }
 
 .movie-modal-description {
   line-height: 1.6;
   color: #ccc;
-  margin-bottom: clamp(15px, 4vw, 20px);
-  font-size: clamp(10px, 3vw, 14px);
+  margin-bottom: 25px;
+  font-size: 14px;
+  flex-grow: 1;
+  overflow-wrap: break-word;
+  padding-right: 2px;
 }
 
 .movie-modal-actions {
   display: flex;
-  gap: clamp(8px, 2vw, 15px);
+  gap: 18px;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .movie-modal-btn {
-  padding: clamp(8px, 3vw, 12px) clamp(15px, 4vw, 24px);
+  padding: 14px 28px;
   border-radius: 8px;
-  font-size: clamp(12px, 3vw, 16px);
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 100px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .movie-modal-watch {
@@ -1775,35 +1163,211 @@ a:hover {
 }
 
 .movie-modal-watch:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
 }
 
 .movie-modal-favorite {
-  background: #333;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .movie-modal-favorite:hover {
-  background: #444;
+  background: rgba(255, 64, 129, 0.2);
+  border-color: rgba(255, 64, 129, 0.3);
+  transform: scale(1.03);
 }
 
+.movie-modal-poster-container .rating-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 5;
+  background: linear-gradient(90deg, #ff4081, #6a37f5);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.modal-overlay {
+  /* ... (существующие стили для .modal-overlay) ... */
+  /* Добавляем специфичный класс для модального окна избранного */
+  /* &.favorites-modal - не используется, т.к. это SCSS */
+}
+
+/* Панель модального окна избранного */
+.favorites-modal-content {
+  width: 100%;
+  max-width: 500px; /* Можно изменить по необходимости */
+  background: rgba(0, 0, 0, 0.8);
+  padding: clamp(20px, 5vw, 50px) clamp(15px, 5vw, 40px);
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1001;
+  overflow-y: auto;
+  height: 100vh;
+  /* Убираем скругления */
+  border-radius: 0;
+}
+
+.favorites-modal-content.active {
+  transform: translateX(0);
+}
+
+/* Заголовок модального окна */
+.favorites-modal-content .modal-header {
+  /* Стили остаются как у других модальных окон */
+  margin-bottom: 20px; /* Добавим отступ снизу */
+}
+
+.favorites-modal-content .modal-header h2 {
+  /* Стили остаются как у других модальных окон */
+}
+
+/* Список избранных фильмов */
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Отступ между элементами */
+  margin-top: 20px; /* Отступ от заголовка */
+}
+
+/* Элемент списка избранного */
+.favorites-item {
+  display: flex;
+  gap: 15px; /* Отступ между изображением и информацией */
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  /* Убираем скругления */
+  border-radius: 0;
+}
+
+.favorites-item img {
+  width: 60px; /* Ширина изображения */
+  height: 90px; /* Высота изображения */
+  object-fit: cover;
+  border-radius: 4px; /* Скругления только для изображения */
+}
+
+.favorites-item-info {
+  flex: 1; /* Занимает оставшееся пространство */
+}
+
+.favorites-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.favorites-item-meta {
+  font-size: 12px;
+  color: #ccc;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.favorites-item-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 10px; /* Уменьшаем размер шрифта */
+}
+
+.favorites-item-description {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+.favorites-item-actions {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; /* Прижимаем действия к правому краю */
+}
+
+.remove-favorite-btn {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.remove-favorite-btn:hover {
+  background: #666;
+}
+
+.no-favorites-message {
+  text-align: center;
+  color: #ccc;
+  font-style: italic;
+  padding: 20px 0;
+}
+
+/* Кнопка закрытия */
+.close-favorites-btn {
+  /* Стили остаются как у других модальных окон */
+  /* position, top, right, background, border, font-size, color, cursor, width, height, display, align-items, justify-content, border-radius, transition */
+  /* Убираем скругления */
+  border-radius: 0;
+}
+
+.close-favorites-btn:hover {
+  /* Стили остаются как у других модальных окон */
+}
+/* === Адаптив для планшетов и больших экранов === */
+@media (min-width: 769px) {
+  .movie-modal-body {
+    flex-direction: row;
+  }
+
+  .movie-modal-poster-container {
+    width: 40%;
+    height: 100%;
+    min-height: auto;
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .movie-modal-info {
+    width: 60%;
+    padding: 35px;
+  }
+}
+
+/* === Адаптив для мобильных устройств === */
 @media (max-width: 768px) {
   .header {
     padding: 10px 15px;
     display: flex;
   }
 
-  .nav-menu {
-    gap: 20px;
-    /* flex-direction: column; */
-    align-items: center;
-    display: flex;
+  .material-icons {
+    display: none;
   }
 
-  .subscription-banner {
-    flex-direction: column;
-    padding: 20px;
+  .nav-menu {
+    gap: 20px;
+    align-items: center;
+    display: flex;
   }
 
   .movie-detail {
@@ -1819,9 +1383,84 @@ a:hover {
   .footer {
     padding: 20px 10px 10px;
   }
+
+  .subscription-banner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px 5%;
+    padding: 20px;
+    height: auto;
+  }
+
+  .subscription-text {
+    max-width: 100%;
+  }
+
+  .subscription-images {
+    margin-top: 20px;
+    width: 100%;
+    height: 200px;
+  }
+
+  .subscription-images img {
+    width: 100px;
+    height: 150px;
+    position: static;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    opacity: 1;
+  }
+
+  .subscription-images img:nth-child(1) {
+    margin-right: 10px;
+  }
+
+  .subscription-images img:nth-child(2) {
+    margin-right: 10px;
+  }
+
+  .subscription-images img:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .movie-modal-content {
+    width: 95vw;
+    height: 90vh;
+  }
 }
 
 @media (max-width: 480px) {
+  .movie-modal-content {
+    width: 98vw;
+    height: 85vh;
+    border-radius: 12px;
+  }
+
+  .movie-modal-close {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .movie-modal-title {
+    font-size: 20px;
+  }
+
+  .movie-modal-meta {
+    font-size: 11px;
+  }
+
+  .movie-modal-description {
+    font-size: 12px;
+  }
+
+  .movie-modal-btn {
+    padding: 10px 15px;
+    font-size: 12px;
+    min-width: 80px;
+  }
+
   .header {
     padding: 8px 10px;
   }
@@ -1877,35 +1516,23 @@ a:hover {
     font-size: 16px;
   }
 
-  .subscription-banner {
-    padding: 8px;
-    margin: 15px 5%;
-    max-width: 90%;
-    height: auto;
-  }
-
-  .subscription-title {
-    font-size: 14px;
-  }
-
-  .subscription-desc {
-    font-size: 10px;
-  }
-
-  .subscription-btn {
-    padding: 4px 8px;
-    font-size: 12px;
-    width: 100%;
-  }
-
   .subscription-images {
-    width: 100px;
-    height: 120px;
+    height: 150px;
   }
 
   .subscription-images img {
-    width: 60px;
-    height: 80px;
+    width: 80px;
+    height: 120px;
+  }
+
+  .subscription-title,
+  .subscription-desc {
+    font-size: 12px;
+  }
+
+  .subscription-btn {
+    padding: 6px 12px;
+    font-size: 12px;
   }
 
   .movie-info h2 {
@@ -1939,8 +1566,16 @@ a:hover {
     padding: 8px 5px;
   }
 
+  .user-trigger i {
+    display: none;
+  }
+
   .logo {
     font-size: 14px;
+  }
+
+  .material-icons {
+    display: none;
   }
 
   .nav-menu {
