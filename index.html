@@ -9,360 +9,855 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/styles.css" />
-      </head>
-      <body>
-        <header class="header">
-          <div class="logo">Reliance</div>
-          <nav class="nav-menu">
-            <a href="#" class="nav-item active">Главное</a>
-            <a href="pages/subscriptions.html" class="nav-item">Подписки</a>
-            <a href="#" class="nav-item">Сериалы</a>
-          </nav>
-          <div class="header_btn">
-            <div class="auth-buttons">
-              <button class="login-btn" id="login-btn">Войти</button>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Reliance</div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active">Главное</a>
+        <a href="pages/subscriptions.html" class="nav-item">Подписки</a>
+        <a href="#" class="nav-item">Сериалы</a>
+      </nav>
+      <div class="header_btn">
+        <div class="auth-buttons">
+          <button class="login-btn" id="login-btn">Войти</button>
+        </div>
+        <div class="user-profile-placeholder">
+          <div class="user-profile" style="display: none">
+            <div class="user-trigger">
+              <img src="image/avatar.jpg" alt="Avatar" class="avatar" />
+              <i class="material-icons">expand_more</i>
             </div>
-            <div class="user-profile-placeholder">
-              <div class="user-profile" style="display: none">
-                <div class="user-trigger">
-                  <img src="image/avatar.jpg" alt="Avatar" class="avatar" />
-                    <i class="material-icons">expand_more</i>
-                </div>
-                <div class="dropdown-menu" style="display: none">
-                  <button class="logout-btn">
-                    <i class="material-icons">logout</i> Выйти
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <section class="hero">
-          <div class="floating-circle circle-1"></div>
-          <div class="floating-circle circle-2"></div>
-          <div class="floating-circle circle-3"></div>
-          <div class="floating-circle circle-4"></div>
-
-          <div class="hero-content">
-            <h1 class="hero-title">Ваш личный кинозал.</h1>
-            <p class="hero-subtitle">Без границ и рекламы по подписке</p>
-            <a href="pages/subscriptions.html">
-              <button class="subscribe-btn">Приобрести подписку</button>
-            </a>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Популярное</h2>
-          <div class="carousel-container">
-            <button class="carousel-btn prev-btn">‹</button>
-            <div class="carousel" id="carousel1">
-              <div class="movie-card">
-                <img src="image/film1.jpg" alt="Film 1" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film2.png" alt="Film 2" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film3.jpg" alt="Film 3" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film4.jpg" alt="Film 4" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film5.jpg" alt="Film 5" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film6.jpg" alt="Film 6" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film7.jpg" alt="Film 7" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film8.jpg" alt="Film 8" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film9.jpg" alt="Film 9" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film10.jpg" alt="Film 10" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film11.jpg" alt="Film 11" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film12.jpg" alt="Film 2" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film3.jpg" alt="Film 3" />
-              </div>
-              <div class="movie-card">
-                <img src="image/film4.jpg" alt="Film 4" />
-              </div>
-            </div>
-            <button class="carousel-btn next-btn">›</button>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Сериалы</h2>
-          <div class="carousel">
-            <div class="movie-card">
-              <img src="image/film1.jpg" alt="Film 1" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film2.png" alt="Film 2" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film3.jpg" alt="Film 3" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film4.jpg" alt="Film 4" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film5.jpg" alt="Film 5" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film6.jpg" alt="Film 6" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film7.jpg" alt="Film 7" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film8.jpg" alt="Film 8" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film9.jpg" alt="Film 9" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film10.jpg" alt="Film 10" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film13.jpg" alt="Film 1" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film14.jpg" alt="Film 1" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film2.png" alt="Film 2" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film3.jpg" alt="Film 3" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film4.jpg" alt="Film 4" />
-            </div>
-          </div>
-        </section>
-
-        <section class="section subscription_section">
-          <h2 class="section-title">Доступно по подписке</h2>
-          <div class="subscription-banner">
-            <div class="subscription-text">
-              <h3 class="subscription-title">Лучшие новинки мира.</h3>
-              <p class="subscription-desc">Для тех, кто смотрит глубже.</p>
-              <button class="subscription-btn">Перейти к подпискам</button>
-            </div>
-            <div class="subscription-images">
-              <img src="image/film5.jpg" alt="Drive" />
-              <img src="image/film6.jpg" alt="Fight Club" />
-              <img src="image/film7.jpg" alt="F1" />
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Сериалы</h2>
-          <div class="carousel">
-            <div class="movie-card">
-              <img src="image/film1.jpg" alt="Film 1" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film2.png" alt="Film 2" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film3.jpg" alt="Film 3" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film4.jpg" alt="Film 4" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film5.jpg" alt="Film 5" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film6.jpg" alt="Film 6" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film7.jpg" alt="Film 7" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film8.jpg" alt="Film 8" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film9.jpg" alt="Film 9" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film10.jpg" alt="Film 10" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film11.jpg" alt="Film 1" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film2.png" alt="Film 2" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film3.jpg" alt="Film 3" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film4.jpg" alt="Film 4" />
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Выбор пользователей</h2>
-
-          <div class="carousel">
-            <div class="movie-card">
-              <img src="image/film1.jpg" alt="Film 1" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film2.png" alt="Film 2" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film3.jpg" alt="Film 3" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film4.jpg" alt="Film 4" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film5.jpg" alt="Film 5" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film6.jpg" alt="Film 6" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film7.jpg" alt="Film 7" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film8.jpg" alt="Film 8" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film9.jpg" alt="Film 9" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film1.jpg" alt="Film 10" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film10.jpg" alt="Film 1" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film2.png" alt="Film 2" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film3.jpg" alt="Film 3" />
-            </div>
-            <div class="movie-card">
-              <img src="image/film4.jpg" alt="Film 4" />
-            </div>
-          </div>
-        </section>
-
-        <section class="section movie-of-the-week-section">
-          <h2 class="section-title">Фильм недели</h2>
-          <div class="movie-detail">
-            <div class="movie-poster">
-              <img src="image/film2.png" alt="Fight Club" />
-              <div class="rating-badge">4.5</div>
-            </div>
-            <div class="movie-info">
-              <h2>«Бойцовский клуб» (1999)</h2>
-              <div class="movie-meta">
-                <span>Дэвид Финчер</span>
-                <span>18+</span>
-                <span>Драма, Триллер</span>
-                <span>139 мин</span>
-              </div>
-              <div class="movie-description">
-                Забудьте всё, что вы знали о правилах. Первое правило
-                Бойцовского клуба — никому не рассказывать о Бойцовском клубе.
-                <br />Второе правило — НИКОМУ. Третий? Смотрите и узнайте.
-                <br />Фильм, который разорвет вашу реальность на части и
-                заставит усомниться в смысле работы, вещей и самой жизни.
-              </div>
-              <div class="movie-actions">
-                <button class="watch-btn">Смотреть</button>
-                <button class="add-to-list-btn">+</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <footer class="footer">
-          <div class="footer-content">
-            <div class="footer-column">
-              <h3>The</h3>
-              <p>
-                Стриминговый сервис для настоящих ценителей кино и сериалов.
-              </p>
-            </div>
-
-            <div class="footer-column">
-              <h3>Компания</h3>
-              <ul class="footer-links">
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Партнерам</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Поддержка</h3>
-              <ul class="footer-links">
-                <li><a href="#">Помощь</a></li>
-                <li><a href="#">Условия использования</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Подписка</h3>
-              <ul class="footer-links">
-                <li><a href="#">Тарифы</a></li>
-                <li><a href="#">Пробный период</a></li>
-                <li><a href="#">Оплата</a></li>
-                <li><a href="#">Отмена подписки</a></li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-        <div class="modal-overlay" id="loginModal">
-          <div class="modal-panel">
-            <button class="close-btn" aria-label="Закрыть">&times;</button>
-
-            <div class="modal-header">
-              <p>Вход в аккаунт</p>
-            </div>
-
-            <form class="login-form">
-              <div class="form-group">
-                <input type="email" placeholder="Email" required />
-              </div>
-              <div class="form-group">
-                <input type="password" placeholder="Пароль" required />
-              </div>
-              <button type="submit" class="submit-btn">Войти</button>
-              <a href="#" class="forgot-link">Забыли пароль?</a>
-            </form>
-
-            <div class="modal-footer">
-              <p>Нет аккаунта? <a href="pages/Untitled-1.html">Зарегистрироваться</a></p>
+            <div class="dropdown-menu" style="display: none">
+              <button class="logout-btn">
+                <i class="material-icons">logout</i> Выйти
+              </button>
+              <button class="logout-btn favorites-btn">
+                <i class="material-icons">favorite</i> Избранное
+              </button>
             </div>
           </div>
         </div>
-        <script src="scripts/script.js"></script>
-      </body>
-    </html>
-  </head>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="floating-circle circle-1"></div>
+      <div class="floating-circle circle-2"></div>
+      <div class="floating-circle circle-3"></div>
+      <div class="floating-circle circle-4"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">Ваш личный кинозал.</h1>
+        <p class="hero-subtitle">Без границ и рекламы по подписке</p>
+        <a href="pages/subscriptions.html">
+          <button class="subscribe-btn">Приобрести подписку</button>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Популярное</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev-btn">‹</button>
+        <div class="carousel" id="carousel1">
+          <div
+            class="movie-card"
+            data-title="Драйв"
+            data-year="2011"
+            data-genre="Боевик, Драма"
+            data-duration="100 мин"
+            data-director="Николас Виндинг Рефн"
+            data-rating="7.8"
+            data-description="Таинственный водитель по прозвищу Драйв — человек с темным прошлым, работающий в Голливуде каскадёром. Он помогает соседке по лестничной площадке Ирен в опасной ситуации, но вскоре втягивается в криминальную схему."
+          >
+            <img src="image/film1.jpg" alt="Drive" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Бойцовский клуб"
+            data-year="1999"
+            data-genre="Драма, Триллер"
+            data-duration="139 мин"
+            data-director="Дэвид Финчер"
+            data-rating="4.5"
+            data-description="Забудьте всё, что вы знали о правилах. Первое правило Бойцовского клуба — никому не рассказывать о Бойцовском клубе. Второе правило — НИКОМУ."
+          >
+            <img src="image/film2.png" alt="Fight Club" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Волк с Уолл-стрит"
+            data-year="2013"
+            data-genre="Биография, Комедия"
+            data-duration="180 мин"
+            data-director="Мартин Скорсезе"
+            data-rating="8.2"
+            data-description="История биржевого маклера Джордана Белфорта, который, несмотря на свой несносный характер, достиг вершин финансового успеха, но в итоге всё потерял."
+          >
+            <img
+              src="image/film3.jpg"
+              alt="The Wolf of Wall Street"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Интерстеллар"
+            data-year="2014"
+            data-genre="Приключения, Драма"
+            data-duration="169 мин"
+            data-director="Кристофер Нолан"
+            data-rating="8.6"
+            data-description="Когда засуха, пыльные бури и неурожаи приводят человечество к голоду, команда исследователей отправляется в космическое путешествие, чтобы найти новый дом для человечества."
+          >
+            <img src="image/film4.jpg" alt="Interstellar" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Криминальное чтиво"
+            data-year="1994"
+            data-genre="Криминал, Комедия"
+            data-duration="154 мин"
+            data-director="Квентин Тарантино"
+            data-rating="8.9"
+            data-description="Фильм рассказывает о пересекающихся судьбах бандитов, мафии, киллеров и боксёров. Известен нелинейным сюжетом, яркими диалогами и сценами насилия."
+          >
+            <img src="image/film5.jpg" alt="Pulp Fiction" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Карты, деньги, два ствола"
+            data-year="1998"
+            data-genre="Криминал, Комедия"
+            data-duration="107 мин"
+            data-director="Гай Ричи"
+            data-rating="8.1"
+            data-description="Четверо друзей ввязываются в аферу с нелегальными играми, но всё идёт не по плану. Фильм полон неожиданных поворотов и остроумия."
+          >
+            <img
+              src="image/film6.jpg"
+              alt="Lock, Stock and Two Smoking Barrels"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Начало"
+            data-year="2010"
+            data-genre="Боевик, Драма"
+            data-duration="148 мин"
+            data-director="Кристофер Нолан"
+            data-rating="8.7"
+            data-description="Кобб — вор, специализирующийся на проникновении в сны. Ему предлагают последнее задание, которое может вернуть ему всё."
+          >
+            <img src="image/film7.jpg" alt="Inception" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Титаник"
+            data-year="1997"
+            data-genre="Драма, Романтика"
+            data-duration="194 мин"
+            data-director="Джеймс Кэмерон"
+            data-rating="7.8"
+            data-description="История любви между бедным художником Джеком и богатой Розой на борту легендарного корабля."
+          >
+            <img src="image/film8.jpg" alt="Titanic" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Форрест Гамп"
+            data-year="1994"
+            data-genre="Драма, Комедия"
+            data-duration="142 мин"
+            data-director="Роберт Земекис"
+            data-rating="8.8"
+            data-description="История жизни простого, но доброго человека, который невольно становится свидетелем и участником многих исторических событий."
+          >
+            <img src="image/film9.jpg" alt="Forrest Gump" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Матрица"
+            data-year="1999"
+            data-genre="Боевик, Фантастика"
+            data-duration="136 мин"
+            data-director="Лана и Лилли Вачовски"
+            data-rating="8.7"
+            data-description="Жизнь программиста Томаса Андерсона превращается в кошмар, когда он встречает загадочного революционера по имени Нео."
+          >
+            <img src="image/film10.jpg" alt="The Matrix" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Список Шиндлера"
+            data-year="1993"
+            data-genre="Биография, Драма"
+            data-duration="195 мин"
+            data-director="Стивен Спилберг"
+            data-rating="8.9"
+            data-description="История немецкого бизнесмена Оскара Шиндлера, который спасает жизни евреев во время Второй мировой войны."
+          >
+            <img src="image/film11.jpg" alt="Schindler's List" loading="lazy" />
+          </div>
+          <div
+            class="movie-card"
+            data-title="Побег из Шоушенка"
+            data-year="1994"
+            data-genre="Драма"
+            data-duration="142 мин"
+            data-director="Фрэнк Дарабонт"
+            data-rating="9.3"
+            data-description="История дружбы двух заключённых, пытающихся выжить в тюремной системе."
+          >
+            <img
+              src="image/film12.jpg"
+              alt="The Shawshank Redemption"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <button class="carousel-btn next-btn">›</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Сериалы</h2>
+
+      <div class="carousel">
+        <div
+          class="movie-card"
+          data-title="Друзья"
+          data-year="1994-2004"
+          data-genre="Комедия"
+          data-duration="22 мин/серия"
+          data-director="Дэвид Крэйн, Марта Кауффман"
+          data-rating="8.9"
+          data-description="Шестеро друзей живут в Нью-Йорке, делят радости и горести, любовь и дружбу."
+        >
+          <img src="image/film1.jpg" alt="Friends" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Игра престолов"
+          data-year="2011-2019"
+          data-genre="Фэнтези, Драма"
+          data-duration="55 мин/серия"
+          data-director="Дэвид Бениофф, Д.Б. Вайс"
+          data-rating="9.2"
+          data-description="Воображаемый мир Вестероса, борьба за Железный трон и борьба за выживание в условиях надвигающейся угрозы."
+        >
+          <img src="image/film2.png" alt="Game of Thrones" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Теория большого взрыва"
+          data-year="2007-2019"
+          data-genre="Комедия"
+          data-duration="22 мин/серия"
+          data-director="Чак Лори"
+          data-rating="8.1"
+          data-description="Жизнь четверых ученых-теоретиков и их соседки Пенни."
+        >
+          <img src="image/film3.jpg" alt="The Big Bang Theory" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Шерлок"
+          data-year="2010-2017"
+          data-genre="Детектив, Драма"
+          data-duration="90 мин/серия"
+          data-director="Марк Гастин, Стивен Моффат"
+          data-rating="9.1"
+          data-description="Современная интерпретация приключений Шерлока Холмса в Лондоне."
+        >
+          <img src="image/film4.jpg" alt="Sherlock" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Офис"
+          data-year="2005-2013"
+          data-genre="Комедия"
+          data-duration="22 мин/серия"
+          data-director="Грег Дэниэлс"
+          data-rating="8.7"
+          data-description="Документальный стиль повествования о жизни сотрудников офиса."
+        >
+          <img src="image/film5.jpg" alt="The Office" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Во все тяжкие"
+          data-year="2008-2013"
+          data-genre="Криминал, Драма"
+          data-duration="47 мин/серия"
+          data-director="Винс Гиллиган"
+          data-rating="9.5"
+          data-description="Учитель химии начинает производить метамфетамин, чтобы обеспечить семью."
+        >
+          <img src="image/film6.jpg" alt="Breaking Bad" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Острые козырьки"
+          data-year="2013-2022"
+          data-genre="Криминал, Драма"
+          data-duration="60 мин/серия"
+          data-director="Стивен Найт"
+          data-rating="8.8"
+          data-description="Британская криминальная драма о банде, действовавшей в Бирмингеме в 1919 году."
+        >
+          <img src="image/film7.jpg" alt="Peaky Blinders" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Черное зеркало"
+          data-year="2011-2019"
+          data-genre="Фантастика, Триллер"
+          data-duration="60-90 мин/серия"
+          data-director="Чарли Брукер"
+          data-rating="8.7"
+          data-description="Антология, исследующая темные и сатирические аспекты современного общества и технологий."
+        >
+          <img src="image/film8.jpg" alt="Black Mirror" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Сверхъестественное"
+          data-year="2005-2020"
+          data-genre="Фэнтези, Ужасы"
+          data-duration="44 мин/серия"
+          data-director="Эрик Крипке"
+          data-rating="8.4"
+          data-description="Два брата путешествуют по США, расследуя паранормальные явления."
+        >
+          <img src="image/film9.jpg" alt="Supernatural" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Доктор Хаус"
+          data-year="2004-2012"
+          data-genre="Драма, Медицина"
+          data-duration="44 мин/серия"
+          data-director="Дэвид Шор"
+          data-rating="8.7"
+          data-description="Неприветливый доктор и его команда решают сложные медицинские загадки."
+        >
+          <img src="image/film10.jpg" alt="House M.D." loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Светлячок"
+          data-year="2002-2003"
+          data-genre="Фантастика, Приключения"
+          data-duration="44 мин/серия"
+          data-director="Джосс Уэддон"
+          data-rating="9.0"
+          data-description="Космический вестерн о команде космического корабля 'Серенити'."
+        >
+          <img src="image/film13.jpg" alt="Firefly" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Мир Дикого Запада"
+          data-year="2016-2024"
+          data-genre="Фантастика, Вестерн"
+          data-duration="60 мин/серия"
+          data-director="Джонатан Нолан, Лиза Джой"
+          data-rating="8.6"
+          data-description="Парк развлечений будущего, населённый андроидами."
+        >
+          <img src="image/film14.jpg" alt="Westworld" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section subscription_section">
+      <h2 class="section-title">Доступно по подписке</h2>
+      <div class="subscription-banner">
+        <div class="subscription-text">
+          <h3 class="subscription-title">Лучшие новинки мира.</h3>
+          <p class="subscription-desc">Для тех, кто смотрит глубже.</p>
+          <button class="subscription-btn">Перейти к подпискам</button>
+        </div>
+        <div class="subscription-images">
+          <img src="image/film5.jpg" alt="Pulp Fiction" loading="lazy" />
+          <img
+            src="image/film6.jpg"
+            alt="Lock, Stock and Two Smoking Barrels"
+            loading="lazy"
+          />
+          <img src="image/film7.jpg" alt="Inception" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Сериалы</h2>
+      <div class="carousel">
+        <div
+          class="movie-card"
+          data-title="Бесстыжие (США)"
+          data-year="2011-2021"
+          data-genre="Комедия, Драма"
+          data-duration="55 мин/серия"
+          data-director="Пол Абсолом"
+          data-rating="8.6"
+          data-description="Жизнь неблагополучной семьи Галлагеров в Чикаго."
+        >
+          <img src="image/film1.jpg" alt="Shameless (US)" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Миллиарды"
+          data-year="2016-2023"
+          data-genre="Драма, Криминал"
+          data-duration="60 мин/серия"
+          data-director="Брайан Кервуд, Дэвид Леви"
+          data-rating="8.3"
+          data-description="Битва между прокурором и миллиардером."
+        >
+          <img src="image/film2.png" alt="Billions" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Друзья по обмену"
+          data-year="2012-2015"
+          data-genre="Комедия"
+          data-duration="22 мин/серия"
+          data-director="Джон Сидарс"
+          data-rating="7.9"
+          data-description="Две пары, чьи жизни переплетаются в неловких ситуациях."
+        >
+          <img src="image/film3.jpg" alt="Benidorm" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Корона"
+          data-year="2016-2023"
+          data-genre="Драма, Исторический"
+          data-duration="60 мин/серия"
+          data-director="Петер Морган"
+          data-rating="8.6"
+          data-description="История британской королевской семьи."
+        >
+          <img src="image/film4.jpg" alt="The Crown" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Нарко"
+          data-year="2015-2017"
+          data-genre="Криминал, Драма"
+          data-duration="60 мин/серия"
+          data-director="Муриэль Саука"
+          data-rating="8.8"
+          data-description="История создания Колумбийского картеля."
+        >
+          <img src="image/film5.jpg" alt="Narcos" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Леон"
+          data-year="1994"
+          data-genre="Боевик, Драма"
+          data-duration="110 мин"
+          data-director="Люк Бессон"
+          data-rating="8.5"
+          data-description="Профессиональный убийца берёт под опеку 12-летнюю девочку, чья семья убита."
+        >
+          <img
+            src="image/film1.jpg"
+            alt="Léon: The Professional"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Леон"
+          data-year="1994"
+          data-genre="Боевик, Драма"
+          data-duration="110 мин"
+          data-director="Люк Бессон"
+          data-rating="8.5"
+          data-description="Профессиональный убийца берёт под опеку 12-летнюю девочку, чья семья убита."
+        >
+          <img
+            src="image/film1.jpg"
+            alt="Léon: The Professional"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Леон"
+          data-year="1994"
+          data-genre="Боевик, Драма"
+          data-duration="110 мин"
+          data-director="Люк Бессон"
+          data-rating="8.5"
+          data-description="Профессиональный убийца берёт под опеку 12-летнюю девочку, чья семья убита."
+        >
+          <img
+            src="image/film1.jpg"
+            alt="Léon: The Professional"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Леон"
+          data-year="1994"
+          data-genre="Боевик, Драма"
+          data-duration="110 мин"
+          data-director="Люк Бессон"
+          data-rating="8.5"
+          data-description="Профессиональный убийца берёт под опеку 12-летнюю девочку, чья семья убита."
+        >
+          <img
+            src="image/film1.jpg"
+            alt="Léon: The Professional"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Леон"
+          data-year="1994"
+          data-genre="Боевик, Драма"
+          data-duration="110 мин"
+          data-director="Люк Бессон"
+          data-rating="8.5"
+          data-description="Профессиональный убийца берёт под опеку 12-летнюю девочку, чья семья убита."
+        >
+          <img
+            src="image/film1.jpg"
+            alt="Léon: The Professional"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Леон"
+          data-year="1994"
+          data-genre="Боевик, Драма"
+          data-duration="110 мин"
+          data-director="Люк Бессон"
+          data-rating="8.5"
+          data-description="Профессиональный убийца берёт под опеку 12-летнюю девочку, чья семья убита."
+        >
+          <img
+            src="image/film1.jpg"
+            alt="Léon: The Professional"
+            loading="lazy"
+          />
+        </div>
+        <div class="movie-card" data-title......
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Выбор пользователей</h2>
+
+      <div class="carousel">
+        <div
+          class="movie-card"
+          data-title="Леон"
+          data-year="1994"
+          data-genre="Боевик, Драма"
+          data-duration="110 мин"
+          data-director="Люк Бессон"
+          data-rating="8.5"
+          data-description="Профессиональный убийца берёт под опеку 12-летнюю девочку, чья семья убита."
+        >
+          <img
+            src="image/film1.jpg"
+            alt="Léon: The Professional"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Зеленая миля"
+          data-year="1999"
+          data-genre="Фэнтези, Драма"
+          data-duration="189 мин"
+          data-director="Фрэнк Дарабонт"
+          data-rating="8.6"
+          data-description="История о таинственном заключённом с даром исцеления."
+        >
+          <img src="image/film2.png" alt="The Green Mile" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="1+1"
+          data-year="2011"
+          data-genre="Биография, Комедия"
+          data-duration="112 мин"
+          data-director="Оливье Накаш, Эрик Толедано"
+          data-rating="9.2"
+          data-description="История дружбы парализованного аристократа и молодого араба из пригорода."
+        >
+          <img src="image/film3.jpg" alt="The Intouchables" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Властелин колец: Братство Кольца"
+          data-year="2001"
+          data-genre="Приключения, Фэнтези"
+          data-duration="178 мин"
+          data-director="Питер Джексон"
+          data-rating="8.8"
+          data-description="Первый фильм трилогии о приключениях хоббита Фродо и его друзей."
+        >
+          <img
+            src="image/film4.jpg"
+            alt="The Lord of the Rings: The Fellowship of the Ring"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Хатико: Самый верный друг"
+          data-year="2009"
+          data-genre="Биография, Драма"
+          data-duration="93 мин"
+          data-director="Лассе Халльстрём"
+          data-rating="8.1"
+          data-description="История верного пса, который ждёт хозяина."
+        >
+          <img src="image/film5.jpg" alt="Hachi: A Dog's Tale" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Троя"
+          data-year="2004"
+          data-genre="Приключения, Исторический"
+          data-duration="163 мин"
+          data-director="Вольфганг Петерсен"
+          data-rating="7.2"
+          data-description="Эпическая история осады Трои."
+        >
+          <img src="image/film6.jpg" alt="Troy" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Красота по-американски"
+          data-year="1999"
+          data-genre="Драма"
+          data-duration="122 мин"
+          data-director="Сэм Мендес"
+          data-rating="8.3"
+          data-description="История среднестатистического американского мужчины, переживающего кризис среднего возраста."
+        >
+          <img src="image/film7.jpg" alt="American Beauty" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Престиж"
+          data-year="2006"
+          data-genre="Драма, Мистика"
+          data-duration="130 мин"
+          data-director="Кристофер Нолан"
+          data-rating="8.5"
+          data-description="История двух фокусников, соревнующихся друг с другом."
+        >
+          <img src="image/film8.jpg" alt="The Prestige" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Гладиатор"
+          data-year="2000"
+          data-genre="Боевик, Драма"
+          data-duration="155 мин"
+          data-director="Ридли Скотт"
+          data-rating="8.5"
+          data-description="Генерал Римской армии становится гладиатором."
+        >
+          <img src="image/film9.jpg" alt="Gladiator" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Амели"
+          data-year="2001"
+          data-genre="Комедия, Романтика"
+          data-duration="122 мин"
+          data-director="Жан-Пьер Жене"
+          data-rating="8.3"
+          data-description="История доброй и эксцентричной француженки Амели."
+        >
+          <img src="image/film1.jpg" alt="Amélie" loading="lazy" />
+        </div>
+        <div
+          class="movie-card"
+          data-title="Крёстный отец"
+          data-year="1972"
+          data-genre="Криминал, Драма"
+          data-duration="175 мин"
+          data-director="Фрэнсис Форд Коппола"
+          data-rating="9.2"
+          data-description="История семьи Корлеоне."
+        >
+          <img src="image/film10.jpg" alt="The Godfather" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section movie-of-the-week-section">
+      <h2 class="section-title">Фильм недели</h2>
+      <div class="movie-detail">
+        <div class="movie-poster">
+          <img src="image/film2.png" alt="Fight Club" loading="lazy" />
+          <div class="rating-badge">4.5</div>
+        </div>
+        <div class="movie-info">
+          <h2>«Бойцовский клуб» (1999)</h2>
+          <div class="movie-meta">
+            <span>Дэвид Финчер</span>
+            <span>18+</span>
+            <span>Драма, Триллер</span>
+            <span>139 мин</span>
+          </div>
+          <div class="movie-description">
+            Забудьте всё, что вы знали о правилах. Первое правило Бойцовского
+            клуба — никому не рассказывать о Бойцовском клубе.
+            <br />Второе правило — НИКОМУ. Третий? Смотрите и узнайте.
+            <br />Фильм, который разорвет вашу реальность на части и заставит
+            усомниться в смысле работы, вещей и самой жизни.
+          </div>
+          <div class="movie-actions">
+            <button class="watch-btn">Смотреть</button>
+            <button
+              class="add-to-list-btn favorite-btn"
+              data-title="Бойцовский клуб"
+              data-year="1999"
+              data-genre="Драма, Триллер"
+              data-duration="139 мин"
+              data-director="Дэвид Финчер"
+              data-rating="4.5"
+              data-description="Забудьте всё, что вы знали о правилах. Первое правило Бойцовского клуба — никому не рассказывать о Бойцовском клубе. Второе правило — НИКОМУ."
+              data-image="image/film2.png"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>The</h3>
+          <p>Стриминговый сервис для настоящих ценителей кино и сериалов.</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Компания</h3>
+          <ul class="footer-links">
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Партнерам</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Поддержка</h3>
+          <ul class="footer-links">
+            <li><a href="#">Помощь</a></li>
+            <li><a href="#">Условия использования</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Подписка</h3>
+          <ul class="footer-links">
+            <li><a href="#">Тарифы</a></li>
+            <li><a href="#">Пробный период</a></li>
+            <li><a href="#">Оплата</a></li>
+            <li><a href="#">Отмена подписки</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <div class="modal-overlay" id="loginModal">
+      <div class="modal-panel">
+        <button class="close-btn" aria-label="Закрыть">&times;</button>
+
+        <div class="modal-header">
+          <p>Вход в аккаунт</p>
+        </div>
+
+        <form class="login-form">
+          <div class="form-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Пароль" required />
+          </div>
+          <button type="submit" class="submit-btn">Войти</button>
+          <a href="#" class="forgot-link">Забыли пароль?</a>
+        </form>
+
+        <div class="modal-footer">
+          <p>
+            Нет аккаунта? <a href="pages/Untitled-1.html">Зарегистрироваться</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-overlay movie-modal" id="movieDetailModal">
+      <div class="movie-modal-content">
+        <button class="movie-modal-close">&times;</button>
+        <div class="movie-modal-body">
+          <div class="movie-modal-poster-container">
+            <img
+              src=""
+              alt="Poster"
+              class="movie-modal-poster"
+              id="modalPoster"
+              loading="lazy"
+            />
+            <div class="rating-badge" id="modalRating">0.0</div>
+          </div>
+          <div class="movie-modal-info">
+            <h2 class="movie-modal-title" id="modalTitle">Заголовок</h2>
+            <div class="movie-modal-meta">
+              <span id="modalYear">Год</span>
+              <span id="modalDuration">Длительность</span>
+              <span id="modalGenre">Жанр</span>
+            </div>
+            <div class="movie-modal-description" id="modalDescription">
+              Описание
+            </div>
+            <div class="movie-modal-actions">
+              <button class="movie-modal-btn movie-modal-watch">
+                <i class="material-icons">play_arrow</i> Смотреть
+              </button>
+              <button
+                class="movie-modal-btn movie-modal-favorite favorite-btn-modal"
+              >
+                <i class="material-icons">favorite_border</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="favoritesModal">
+      <div class="modal-panel favorites-modal-content">
+        <button class="close-btn close-favorites-btn" aria-label="Закрыть">
+          &times;
+        </button>
+        <div class="modal-header">
+          <h2>Избранное <i class="material-icons"></i></h2>
+        </div>
+        <div class="favorites-list" id="favoritesList"></div>
+      </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
