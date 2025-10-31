@@ -191,20 +191,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // --- Функции для работы с избранным ---
   function addToFavorites(movieData) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    // Проверяем, есть ли уже фильм в избранном
     const exists = favorites.some(
       (fav) => fav.title === movieData.title && fav.year === movieData.year
     );
-    if (!exists) {
-      favorites.push(movieData);
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-      console.log('Фильм добавлен в избранное:', movieData.title);
-    } else {
-      console.log('Фильм уже в избранном:', movieData.title);
-    }
   }
 
   function removeFromFavorites(title, year) {
@@ -212,19 +203,17 @@ document.addEventListener('DOMContentLoaded', function () {
     favorites = favorites.filter(
       (fav) => !(fav.title === title && fav.year === year)
     );
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    console.log('Фильм удален из избранного:', title);
   }
 
   function loadFavoritesToModal() {
-    const favoritesList = document.getElementById('favoritesList'); // Находим контейнер списка
+    const favoritesList = document.getElementById('favoritesList');
     if (!favoritesList) {
       console.error("Элемент с ID 'favoritesList' не найден.");
       return;
     }
 
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favoritesList.innerHTML = ''; // Очищаем список
+    favoritesList.innerHTML = '';
 
     if (favorites.length === 0) {
       favoritesList.innerHTML = '<p>Избранных фильмов нет.</p>';
@@ -252,26 +241,21 @@ document.addEventListener('DOMContentLoaded', function () {
       favoritesList.appendChild(item);
     });
 
-    // Добавляем обработчики для кнопок удаления
     document.querySelectorAll('.remove-favorite-btn').forEach((btn) => {
       btn.addEventListener('click', function () {
         const title = this.getAttribute('data-title');
         const year = this.getAttribute('data-year');
         removeFromFavorites(title, year);
-        // Перезагружаем список в модальном окне
         loadFavoritesToModal();
       });
     });
   }
 
-  // --- Обработчики для кнопок "Добавить в избранное" ---
-  // Кнопки на карточках фильмов и в деталях фильма
   document
     .querySelectorAll('.favorite-btn, .movie-modal-favorite')
     .forEach((button) => {
       button.addEventListener('click', function () {
         let movieData;
-        // Определяем, откуда пришел клик (из карточки или из модального окна)
         if (this.classList.contains('movie-modal-favorite')) {
           const modal = document.getElementById('movieDetailModal');
           if (modal.classList.contains('active')) {
@@ -307,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (movieData) {
           addToFavorites(movieData);
-          this.querySelector('i').textContent = 'favorite'; // или другая иконка
+          this.querySelector('i').textContent = 'favorite';
         }
       });
     });
@@ -349,4 +333,16 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   // const favoritebtnmodal = this.querySelector('favorite-btn-modal');
   // if
+  const form = document.getElementById('registrationForm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    window.location.href = '../index.html';
+  });
 });
