@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+.section {
+  height: 600px;
+}
+.reg_img {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 2vw;
+  margin-top: 5%;
+  margin-left: 30%;
+  letter-spacing: 4px;
+}
+.registr {
+  margin-top: 10%;
+  margin-left: 35%;
+  width: 30%;
+  height: 570px;
+  border: 3px solid rgba(214, 213, 213, 0.464);
+  border-radius: 15px;
+}
+.registr h2 {
+  font-size: 2vw;
+  margin-top: 2%;
+  margin-left: 22%;
+  color: #ffffff47;
+}

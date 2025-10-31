@@ -22,7 +22,6 @@ a:hover {
   color: #ff4081;
 }
 
-/* === Header === */
 .header {
   display: flex;
   justify-content: space-between;
@@ -69,10 +68,6 @@ a:hover {
   transition: color 0.2s ease;
 }
 
-.nav-item.active {
-  color: #ff4081; /* Цвет активной ссылки */
-}
-
 .nav-item::after {
   content: '';
   position: absolute;
@@ -84,11 +79,9 @@ a:hover {
   transition: width 0.3s ease-in-out;
 }
 
-.nav-item:hover::after,
-.nav-item.active::after {
+.nav-item:hover::after {
   width: 100%;
 }
-
 .login-btn {
   background-color: #444;
   color: white;
@@ -98,6 +91,12 @@ a:hover {
   cursor: pointer;
   font-size: clamp(12px, 3vw, 14px);
   transition: all 0.3s ease;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .login-btn:hover {
