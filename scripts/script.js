@@ -61,6 +61,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  const registerModal = document.getElementById('registerModal');
+  const openRegisterBtn = document.querySelector('.reg-btn');
+  const closeRegisterBtn = registerModal?.querySelector('.close-reg-btn');
+
+  openRegisterBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    registerModal?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeRegisterBtn?.addEventListener('click', () => {
+    registerModal?.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  registerModal?.addEventListener('click', (e) => {
+    if (e.target === registerModal) {
+      registerModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
   const userTrigger = document.querySelector('.user-trigger');
   const dropdownMenu = document.querySelector('.dropdown-menu');
   const logoutBtn = document.querySelector('.logout-btn');
@@ -129,8 +151,20 @@ document.addEventListener('DOMContentLoaded', function () {
         loginModal.classList.remove('active');
         document.body.style.overflow = '';
       }
+      if (registerModal?.classList.contains('active')) {
+        registerModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      if (movieDetailModal?.classList.contains('active')) {
+        movieDetailModal.classList.remove('active');
+      }
+      if (favoritesModal?.classList.contains('active')) {
+        favoritesModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     }
   });
+
   const movieDetailModal = document.getElementById('movieDetailModal');
   const modalPoster = document.getElementById('modalPoster');
   const modalTitle = document.getElementById('modalTitle');
@@ -140,6 +174,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const modalRating = document.getElementById('modalRating');
   const modalDescription = document.getElementById('modalDescription');
   const modalCloseBtn = document.querySelector('.movie-modal-close');
+  const movieModalFavoriteBtn = document.querySelector('.movie-modal-favorite');
+  const movieModalAddBtn = document.querySelector('.movie-modal-add');
 
   const movieCards = document.querySelectorAll('.movie-card');
 
@@ -182,20 +218,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.addEventListener('keydown', function (event) {
-    if (
-      event.key === 'Escape' &&
-      movieDetailModal.classList.contains('active')
-    ) {
-      closeMovieModal();
-    }
-  });
-
   function addToFavorites(movieData) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const exists = favorites.some(
       (fav) => fav.title === movieData.title && fav.year === movieData.year
     );
+
+    if (!exists) {
+      favorites.push(movieData);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      updateFavoriteButton(movieData.title, movieData.year, true);
+    }
   }
 
   function removeFromFavorites(title, year) {
@@ -203,6 +236,41 @@ document.addEventListener('DOMContentLoaded', function () {
     favorites = favorites.filter(
       (fav) => !(fav.title === title && fav.year === year)
     );
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoriteButton(title, year, false);
+  }
+
+  function updateFavoriteButton(title, year, isFavorite) {
+    document.querySelectorAll('.movie-card').forEach((card) => {
+      if (
+        card.getAttribute('data-title') === title &&
+        card.getAttribute('data-year') === year
+      ) {
+        const favBtn = card.querySelector('.favorite-btn');
+        if (favBtn) {
+          favBtn.classList.toggle('active', isFavorite);
+          favBtn.querySelector('i').textContent = isFavorite
+            ? 'favorite'
+            : 'favorite_border';
+        }
+      }
+    });
+
+    if (
+      movieModalFavoriteBtn &&
+      modalTitle.textContent === title &&
+      modalYear.textContent === year
+    ) {
+      movieModalFavoriteBtn.classList.toggle('active', isFavorite);
+      movieModalFavoriteBtn.querySelector('i').textContent = isFavorite
+        ? 'favorite'
+        : 'favorite_border';
+    }
+  }
+
+  function isMovieInFavorites(title, year) {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    return favorites.some((fav) => fav.title === title && fav.year === year);
   }
 
   function loadFavoritesToModal() {
@@ -224,20 +292,20 @@ document.addEventListener('DOMContentLoaded', function () {
       const item = document.createElement('div');
       item.className = 'favorites-item';
       item.innerHTML = `
-                <img src="${movie.image}" alt="${movie.title}">
-                <div class="favorites-item-info">
-                    <div class="favorites-item-title">${movie.title}</div>
-                    <div class="favorites-item-meta">
-                        <span>${movie.year}</span>
-                        <span>${movie.genre}</span>
-                        <span>${movie.duration}</span>
-                    </div>
-                    <div class="movie-description">${movie.description}</div>
-                </div>
-                <div class="favorites-item-actions">
-                    <button class="remove-favorite-btn" data-title="${movie.title}" data-year="${movie.year}">Удалить</button>
-                </div>
-            `;
+        <img src="${movie.image}" alt="${movie.title}" loading="lazy">
+        <div class="favorites-item-info">
+          <div class="favorites-item-title">${movie.title}</div>
+          <div class="favorites-item-meta">
+            <span>${movie.year}</span>
+            <span>${movie.genre}</span>
+            <span>${movie.duration}</span>
+          </div>
+          <div class="movie-description">${movie.description}</div>
+        </div>
+        <div class="favorites-item-actions">
+          <button class="remove-favorite-btn" data-title="${movie.title}" data-year="${movie.year}">Удалить</button>
+        </div>
+      `;
       favoritesList.appendChild(item);
     });
 
@@ -251,50 +319,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  document
-    .querySelectorAll('.favorite-btn, .movie-modal-favorite')
-    .forEach((button) => {
-      button.addEventListener('click', function () {
-        let movieData;
-        if (this.classList.contains('movie-modal-favorite')) {
-          const modal = document.getElementById('movieDetailModal');
-          if (modal.classList.contains('active')) {
-            movieData = {
-              title: document.getElementById('modalTitle').textContent,
-              year: document.getElementById('modalYear').textContent,
-              genre: document.getElementById('modalGenre').textContent,
-              duration: document.getElementById('modalDuration').textContent,
-              director: document.getElementById('modalDirector')
-                ? document.getElementById('modalDirector').textContent
-                : '',
-              rating: document.getElementById('modalRating').textContent,
-              description:
-                document.getElementById('modalDescription').textContent,
-              image: document.getElementById('modalPoster').src,
-            };
-          }
-        } else {
-          const movieCard = this.closest('.movie-card, .movie-detail');
-          if (movieCard) {
-            movieData = {
-              title: movieCard.getAttribute('data-title'),
-              year: movieCard.getAttribute('data-year'),
-              genre: movieCard.getAttribute('data-genre'),
-              duration: movieCard.getAttribute('data-duration'),
-              director: movieCard.getAttribute('data-director'),
-              rating: movieCard.getAttribute('data-rating'),
-              description: movieCard.getAttribute('data-description'),
-              image: movieCard.querySelector('img').src,
-            };
-          }
-        }
+  document.querySelectorAll('.favorite-btn').forEach((button) => {
+    button.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const movieCard = this.closest('.movie-card');
+      if (!movieCard) return;
 
-        if (movieData) {
-          addToFavorites(movieData);
-          this.querySelector('i').textContent = 'favorite';
-        }
-      });
+      const movieData = {
+        title: movieCard.getAttribute('data-title'),
+        year: movieCard.getAttribute('data-year'),
+        genre: movieCard.getAttribute('data-genre'),
+        duration: movieCard.getAttribute('data-duration'),
+        rating: movieCard.getAttribute('data-rating'),
+        description: movieCard.getAttribute('data-description'),
+        image: movieCard.querySelector('img').src,
+      };
+
+      const isCurrentlyFavorite = this.classList.contains('active');
+      if (isCurrentlyFavorite) {
+        removeFromFavorites(movieData.title, movieData.year);
+      } else {
+        addToFavorites(movieData);
+      }
     });
+  });
+
+  movieModalFavoriteBtn?.addEventListener('click', function () {
+    const movieData = {
+      title: modalTitle.textContent,
+      year: modalYear.textContent,
+      genre: modalGenre.textContent,
+      duration: modalDuration.textContent,
+      rating: modalRating.textContent,
+      description: modalDescription.textContent,
+      image: modalPoster.src,
+    };
+
+    const isCurrentlyFavorite = this.classList.contains('active');
+    if (isCurrentlyFavorite) {
+      removeFromFavorites(movieData.title, movieData.year);
+    } else {
+      addToFavorites(movieData);
+    }
+  });
 
   const favoritesBtn = document.querySelector('.favorites-btn');
   const favoritesModal = document.getElementById('favoritesModal');
@@ -325,24 +392,43 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && favoritesModal.classList.contains('active')) {
-      favoritesModal.classList.remove('active');
+  const registrationForm = document.getElementById('registrationForm');
+  if (registrationForm) {
+    registrationForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (!username || !email || !password || !confirmPassword) {
+        alert('Пожалуйста, заполните все поля.');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Пароли не совпадают.');
+        return;
+      }
+
+      alert('Регистрация прошла успешно!');
+
+      registerModal?.classList.remove('active');
       document.body.style.overflow = '';
+    });
+  }
+
+  document.querySelectorAll('.movie-card').forEach((card) => {
+    const title = card.getAttribute('data-title');
+    const year = card.getAttribute('data-year');
+    const isFav = isMovieInFavorites(title, year);
+    const favBtn = card.querySelector('.favorite-btn');
+    if (favBtn) {
+      favBtn.classList.toggle('active', isFav);
+      favBtn.querySelector('i').textContent = isFav
+        ? 'favorite'
+        : 'favorite_border';
     }
-  });
-  // const favoritebtnmodal = this.querySelector('favorite-btn-modal');
-  // if
-  const form = document.getElementById('registrationForm');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const username = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-
-    window.location.href = '../index.html';
   });
 });
