@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Создать аккаунт</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(to bottom, #000, #1a0927);
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .section {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .registr {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Убраны скругления, как вы предпочитаете */
+        border-radius: 0;
+        padding: clamp(25px, 5vw, 40px);
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      .registr h2 {
+        text-align: center;
+        margin-bottom: clamp(20px, 4vw, 30px);
+        font-size: clamp(20px, 5vw, 24px);
+        color: white;
+      }
+
+      .form-group {
+        margin-bottom: clamp(15px, 3vw, 20px);
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: clamp(12px, 2.5vw, 14px);
+        color: #ccc;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: clamp(10px, 2vw, 14px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        /* Убраны скругления для полей ввода */
+        border-radius: 0;
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        font-size: clamp(14px, 3vw, 16px);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #ff4081;
+        box-shadow: 0 0 10px rgba(255, 64, 129, 0.3);
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: clamp(10px, 2vw, 14px);
+        background: linear-gradient(90deg, #ff4081, #6a37f5);
+        color: white;
+        border: none;
+        /* Убраны скругления для кнопки */
+        border-radius: 0;
+        font-size: clamp(14px, 3vw, 16px);
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-top: clamp(10px, 2vw, 15px);
+      }
+
+      .submit-btn:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(255, 64, 129, 0.4);
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: clamp(15px, 3vw, 20px);
+        font-size: clamp(12px, 2.5vw, 14px);
+      }
+
+      .login-link a {
+        color: #ff4081;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .login-link a:hover {
+        color: #6a37f5;
+        text-decoration: underline;
+      }
+
+      .floating-circle {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      .circle-1 {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(90deg, #ff4081, #6a37f5);
+        top: 10%;
+        left: 10%;
+      }
+
+      .circle-2 {
+        width: 150px;
+        height: 150px;
+        background: #0091ff;
+        bottom: 10%;
+        right: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-circle circle-1"></div>
+    <div class="floating-circle circle-2"></div>
+
+    <section class="section">
+      <div class="registr">
+        <h2>Создать аккаунт</h2>
+        <form class="registration-form" id="registrationForm">
+          <div class="form-group">
+            <label for="name">Имя пользователя</label>
+            <input
+              type="text"
+              id="name"
+              name="user-name"
+              placeholder="Имя пользователя"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Ваш email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Пароль"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Подтвердите пароль</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Повторите пароль"
+              required
+            />
+          </div>
+          <!-- Кнопка без внутренней ссылки -->
+          <button type="submit" class="submit-btn">Зарегистрироваться</button>
+        </form>
+      </div>
+    </section>
+
+    <script></script>
+  </body>
+</html>

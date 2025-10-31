@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лучшие Фильмы</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/style_favorite.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo"><a href="../index.html">Reliance</a></div>
+      <nav class="nav-menu">
+        <a href="../index.html" class="nav-item active">Главное</a>
+        <a href="../pages/subscriptions.html" class="nav-item">Подписки</a>
+        <a href="../pages/favorite.html" class="nav-item">Лучшее</a>
+      </nav>
+      <div class="header_btn">
+        <button class="login-btn" id="login-btn">Войти</button>
+        <div class="user-profile" style="display: none">
+          <div class="user-trigger">
+            <img
+              src="https://via.placeholder.com/40x40/ff4081/ffffff?text=U"
+              alt="Avatar"
+              class="avatar"
+            />
+            <i class="material-icons">expand_more</i>
+          </div>
+          <div class="dropdown-menu" style="display: none">
+            <button class="logout-btn">
+              <i class="material-icons">logout</i> Выйти
+            </button>
+            <button class="logout-btn favorites-btn">
+              <i class="material-icons">favorite</i> Избранное
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="floating-circle circle-1"></div>
+        <div class="floating-circle circle-2"></div>
+        <div class="floating-circle circle-3"></div>
+        <div class="floating-circle circle-4"></div>
+
+        <div class="hero-content">
+          <h1 class="hero-title">Ваш личный кинозал.</h1>
+          <p class="hero-subtitle">Без границ и рекламы по подписке</p>
+          <a href="#">
+            <button class="subscribe-btn">Приобрести подписку</button>
+          </a>
+        </div>
+      </section>
+
+      <section class="main-movies-section">
+        <h2 class="section-title">Лучшие Фильмы</h2>
+        <div class="main-movies-container">
+          <!-- Карточка 1 -->
+          <div class="main-movie-card">
+            <div class="main-movie-badge">1</div>
+            <img
+              src="../image/темныйпринц"
+              alt="Темный Рыцарь"
+              class="main-movie-poster"
+              loading="lazy"
+            />
+            <div class="main-movie-info">
+              <div>
+                <h3 class="main-movie-title">Темный принц</h3>
+                <div class="main-movie-meta">
+                  <span>2008</span>
+                  <span>Боевик</span>
+                  <span>Драма</span>
+                </div>
+                <div class="main-movie-rating">9.0</div>
+              </div>
+              <p class="main-movie-description">
+                Бэтмен сталкивается с самым опасным врагом — Джокером, который
+                устраивает хаос в Gotham City.
+              </p>
+              <div class="main-movie-actions">
+                <button class="main-movie-btn main-movie-watch-btn">
+                  Смотреть
+                </button>
+                <button class="main-movie-btn main-movie-fav-btn">
+                  <i class="material-icons">favorite_border</i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Карточка 2 -->
+          <div class="main-movie-card">
+            <div class="main-movie-badge">2</div>
+            <img
+              src="../image/film1.jpg"
+              alt="Начало"
+              class="main-movie-poster"
+              loading="lazy"
+            />
+            <div class="main-movie-info">
+              <div>
+                <h3 class="main-movie-title">Начало</h3>
+                <div class="main-movie-meta">
+                  <span>2010</span>
+                  <span>Фантастика</span>
+                  <span>Боевик</span>
+                </div>
+                <div class="main-movie-rating">8.7</div>
+              </div>
+              <p class="main-movie-description">
+                Фильм о проникновении в подсознание, где реальность
+                переплетается со снами.
+              </p>
+              <div class="main-movie-actions">
+                <button class="main-movie-btn main-movie-watch-btn">
+                  Смотреть
+                </button>
+                <button class="main-movie-btn main-movie-fav-btn">
+                  <i class="material-icons">favorite_border</i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Карточка 3 -->
+          <div class="main-movie-card">
+            <div class="main-movie-badge">3</div>
+            <img
+              src="../image/film2.png"
+              alt="Побег из Шоушенка"
+              class="main-movie-poster"
+              loading="lazy"
+            />
+            <div class="main-movie-info">
+              <div>
+                <h3 class="main-movie-title">Побег из Шоушенка</h3>
+                <div class="main-movie-meta">
+                  <span>1994</span>
+                  <span>Драма</span>
+                </div>
+                <div class="main-movie-rating">9.3</div>
+              </div>
+              <p class="main-movie-description">
+                История дружбы и надежды двух заключенных в тюрьме Шоушенк.
+              </p>
+              <div class="main-movie-actions">
+                <button class="main-movie-btn main-movie-watch-btn">
+                  Смотреть
+                </button>
+                <button class="main-movie-btn main-movie-fav-btn">
+                  <i class="material-icons">favorite_border</i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Карточка 4 -->
+          <div class="main-movie-card">
+            <div class="main-movie-badge">4</div>
+            <img
+              src="../image/film12.jpg"
+              alt="Крёстный Отец"
+              class="main-movie-poster"
+              loading="lazy"
+            />
+            <div class="main-movie-info">
+              <div>
+                <h3 class="main-movie-title">Крёстный отец</h3>
+                <div class="main-movie-meta">
+                  <span>1972</span>
+                  <span>Криминал</span>
+                  <span>Драма</span>
+                </div>
+                <div class="main-movie-rating">9.2</div>
+              </div>
+              <p class="main-movie-description">
+                История о власти, семье и преступном мире семьи Корлеоне.
+              </p>
+              <div class="main-movie-actions">
+                <button class="main-movie-btn main-movie-watch-btn">
+                  Смотреть
+                </button>
+                <button class="main-movie-btn main-movie-fav-btn">
+                  <i class="material-icons">favorite_border</i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Карточка 5 -->
+          <div class="main-movie-card">
+            <div class="main-movie-badge">5</div>
+            <img
+              src="../image/film3.jpg"
+              alt="Матрица"
+              class="main-movie-poster"
+              loading="lazy"
+            />
+            <div class="main-movie-info">
+              <div>
+                <h3 class="main-movie-title">Матрица</h3>
+                <div class="main-movie-meta">
+                  <span>1999</span>
+                  <span>Фантастика</span>
+                  <span>Боевик</span>
+                </div>
+                <div class="main-movie-rating">8.7</div>
+              </div>
+              <p class="main-movie-description">
+                Боец сопротивления проникает в иллюзорный мир Матрицы.
+              </p>
+              <div class="main-movie-actions">
+                <button class="main-movie-btn main-movie-watch-btn">
+                  Смотреть
+                </button>
+                <button class="main-movie-btn main-movie-fav-btn">
+                  <i class="material-icons">favorite_border</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../scripts/script.js"></script>
+  </body>
+</html>
